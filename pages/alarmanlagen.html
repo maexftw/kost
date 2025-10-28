@@ -3,18 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professionelle Alarmanlagen für Privat und Gewerbe in Dortmund. Zuverlässiger Schutz durch moderne Alarmsysteme.">
+    <meta name="description" content="Professionelle Alarmanlagen für Privat und Gewerbe in Dortmund. Zertifizierte Systeme mit direkter Aufschaltung.">
+    <meta name="keywords" content="Alarmanlagen, Einbruchschutz, Sicherheitssysteme, Dortmund, KOST">
+    <meta property="og:title" content="Alarmanlagen - KOST Sicherheitstechnik">
+    <meta property="og:description" content="Professionelle Alarmanlagen - Zertifizierte Systeme mit direkter Aufschaltung">
+    <meta property="og:type" content="website">
     <title>Alarmanlagen - KOST Sicherheitstechnik</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="../css/theme.css">
     <style>
-        .scroll-reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-        .scroll-reveal.active { opacity: 1; transform: translateY(0); }
-        .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); z-index: 9998; padding: 6rem 2rem 2rem; opacity: 0; transform: translateY(-20px); transition: opacity 0.3s ease, transform 0.3s ease; overflow-y: auto; }
-        .mobile-menu.active { display: block; opacity: 1; transform: translateY(0); }
-        .mobile-menu-link { display: block; font-size: 2rem; font-weight: 600; color: var(--foreground, #1d1d1f); text-decoration: none; padding: 1.5rem 0; border-bottom: 1px solid rgba(0, 0, 0, 0.1); transition: color 0.2s ease; }
-        .mobile-menu-link:hover { color: var(--kost-red, #FA0016); }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 9998;
+            padding: 6rem 2rem 2rem;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu-link {
+            display: block;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--foreground, #1d1d1f);
+            text-decoration: none;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: color 0.2s ease;
+        }
+
+        .mobile-menu-link:hover {
+            color: var(--kost-red, #FA0016);
+        }
 
         /* Mobile Dropdown */
         .mobile-dropdown {
@@ -56,14 +103,32 @@
         .mobile-dropdown-toggle.active i {
             transform: rotate(180deg);
         }
-/* Responsive heading fix */        @media (max-width: 640px) {            .display-xl {                font-size: 2.5rem !important;                line-height: 1.1 !important;                word-break: break-word;            }            .display-md {                font-size: 1.875rem !important;                line-height: 1.2 !important;            }        }
+
+        /* Responsive heading fix */
+        @media (max-width: 640px) {
+            .display-xl {
+                font-size: 2.5rem !important;
+                line-height: 1.1 !important;
+                word-break: break-word;
+            }
+
+            .display-md {
+                font-size: 1.875rem !important;
+                line-height: 1.2 !important;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- NAVIGATION -->
     <nav class="nav-apple" id="mainNav">
         <div class="container">
             <div class="flex justify-between items-center">
-                <a href="../index.html" class="text-xl font-semibold" style="color: var(--foreground, #1d1d1f); text-decoration: none;" aria-label="KOST Sicherheitstechnik Homepage">KOST<span style="color: var(--kost-red, #FA0016);">.</span></a>
+                <a href="../index.html" class="text-xl font-semibold" style="color: var(--foreground, #1d1d1f); text-decoration: none;" aria-label="KOST Sicherheitstechnik Homepage">
+                    KOST<span style="color: var(--kost-red, #FA0016);">.</span>
+                </a>
+
                 <div class="hidden md:flex items-center gap-8">
                     <a href="../index.html" class="nav-link-apple">Startseite</a>
                     <div class="relative group">
@@ -82,14 +147,19 @@
                     <a href="../index.html#about" class="nav-link-apple">Über uns</a>
                     <a href="../index.html#contact" class="nav-link-apple">Kontakt</a>
                 </div>
+
                 <button class="md:hidden" id="mobileToggle" aria-label="Navigation öffnen" aria-expanded="false" style="background: none; border: none; cursor: pointer;">
                     <i data-lucide="menu" style="width: 24px; height: 24px; color: var(--foreground, #1d1d1f);"></i>
                 </button>
             </div>
         </div>
     </nav>
+
+        <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
-        <button id="mobileClose" aria-label="Navigation schließen" style="position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; cursor: pointer;"><i data-lucide="x" style="width: 32px; height: 32px; color: var(--foreground, #1d1d1f);"></i></button>
+        <button id="mobileClose" aria-label="Navigation schließen" style="position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; cursor: pointer;">
+            <i data-lucide="x" style="width: 32px; height: 32px; color: var(--foreground, #1d1d1f);"></i>
+        </button>
         <nav>
             <a href="../index.html" class="mobile-menu-link">Startseite</a>
             <div>
@@ -110,130 +180,394 @@
         </nav>
     </div>
 
+    <!-- HERO SECTION -->
     <section class="section-apple" style="padding-top: 6rem; padding-bottom: 4rem; background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);">
-        <div class="container"><div class="max-w-4xl mx-auto text-center">
-            <div class="hero-eyebrow mb-md">Professionelle Sicherheit</div>
-            <h1 class="display-xl mb-lg">Alarmanlagen</h1>
-            <p class="body-lg" style="max-width: 680px; margin-left: auto; margin-right: auto;">Professionelle Alarmsysteme für Ihr Zuhause und Gewerbe</p>
-        </div></div>
+        <div class="container">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="hero-eyebrow mb-md">Professionelle Sicherheit</div>
+                <h1 class="display-xl mb-lg">Videoüberwachung</h1>
+                <p class="body-lg" style="max-width: 680px; margin-left: auto; margin-right: auto;">
+                    Video-Überwachungs-Systeme - Konzeption, Planung & Installation
+                </p>
+            </div>
+        </div>
     </section>
 
+    <!-- INTRO SECTION -->
     <section class="section-apple">
         <div class="max-w-4xl mx-auto text-center scroll-reveal">
-            <h2 class="display-md mb-lg">Zuverlässiger Schutz durch moderne Alarmanlagen</h2>
-            <p class="body-md">Eine Alarmanlage ist eines der wichtigsten Elemente eines umfassenden Sicherheitskonzepts. KOST Sicherheitstechnik plant, installiert und wartet Alarmanlagen für private und gewerbliche Objekte. Dabei setzen wir auf hochwertige Komponenten namhafter Hersteller und moderne Funktechnologie.</p>
-            <p class="body-md mt-lg">Unsere Alarmanlagen schützen Sie zuverlässig vor Einbruch, Überfall und weiteren Gefahren. Die Integration in Ihr bestehendes Sicherheitssystem ist problemlos möglich.</p>
+            <h2 class="display-md mb-lg">Die ganze Welt der elektronischen Sicherheitstechnik</h2>
+            <p class="body-md">
+                Kost Sicherheitstechnik entwickelt Konzepte, projektiert und installiert Videoüberwachungssysteme,
+                die die klassische Videoüberwachung mit einer modernen und sicheren IP-Technologie verbindet.
+                Wichtig ist in jedem Fall eine fachgerechte Planung und Montage – darauf weisen auch die
+                polizeilichen Beratungsstellen immer wieder hin.
+            </p>
         </div>
     </section>
 
-    <section class="section-apple">
-        <div class="grid md:grid-cols-3 gap-6 scroll-reveal">
-            <div style="border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg, 0 10px 15px rgba(0, 0, 0, 0.05));"><img src="../images/alarmanlagen-detail-01-abus-kompo-24-zu-10.jpg" alt="Alarmanlage" style="width: 100%; height: 300px; object-fit: cover; display: block;"></div>
-            <div style="border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg, 0 10px 15px rgba(0, 0, 0, 0.05));"><img src="../images/alarmanlagen-detail-03-abus-kompo-24-zu-10.jpg" alt="Alarm Detail" style="width: 100%; height: 300px; object-fit: cover; display: block;"></div>
-            <div style="border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg, 0 10px 15px rgba(0, 0, 0, 0.05));"><img src="../images/alarmanlagen-bb-02-sirene-wand-20-zu-10.jpg" alt="Alarmsirene" style="width: 100%; height: 300px; object-fit: cover; display: block;"></div>
-        </div>
-    </section>
-
+    <!-- PLANNING POINTS -->
     <section class="section-apple" style="background: var(--muted, #f5f5f7);">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-2xl scroll-reveal">
-                <h2 class="display-md mb-lg">Leistungsmerkmale unserer Alarmanlagen</h2>
+                <h2 class="display-md mb-lg">Professionelle Planung</h2>
+                <p class="body-lg">
+                    Im Zuge der Planung müssen folgende Punkte berücksichtigt werden:
+                </p>
             </div>
-            <div class="grid md:grid-cols-2 gap-8">
+
+            <div class="grid md:grid-cols-2 gap-6">
                 <div class="card-apple scroll-reveal">
                     <div class="flex items-start gap-4">
-                        <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;"><i data-lucide="shield-alert" style="width: 24px; height: 24px; color: white;"></i></div>
-                        <div><h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--foreground, #1d1d1f);">Einbruchschutz</h3><p style="font-size: 1rem; line-height: 1.6; color: var(--muted-foreground, #86868b);">Zuverlässige Erkennung von Einbruchsversuchen durch Tür- und Fensterkontakte sowie Bewegungsmelder.</p></div>
+                        <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="camera" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--foreground, #1d1d1f);">Kamera-Platzierung</h3>
+                            <p style="font-size: 1rem; line-height: 1.6; color: var(--muted-foreground, #86868b);">
+                                Wie viele Kameras müssen wo platziert werden?
+                            </p>
+                        </div>
                     </div>
                 </div>
+
                 <div class="card-apple scroll-reveal" style="transition-delay: 0.1s;">
                     <div class="flex items-start gap-4">
-                        <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;"><i data-lucide="bell-ring" style="width: 24px; height: 24px; color: white;"></i></div>
-                        <div><h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--foreground, #1d1d1f);">Akustische Warnung</h3><p style="font-size: 1rem; line-height: 1.6; color: var(--muted-foreground, #86868b);">Laute Sirenen schrecken Eindringlinge ab und alarmieren die Nachbarschaft.</p></div>
+                        <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="clock" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--foreground, #1d1d1f);">Aktivierungszeiten</h3>
+                            <p style="font-size: 1rem; line-height: 1.6; color: var(--muted-foreground, #86868b);">
+                                Wann soll die Videoüberwachung aktiv sein?
+                            </p>
+                        </div>
                     </div>
                 </div>
+
                 <div class="card-apple scroll-reveal" style="transition-delay: 0.2s;">
                     <div class="flex items-start gap-4">
-                        <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;"><i data-lucide="smartphone" style="width: 24px; height: 24px; color: white;"></i></div>
-                        <div><h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--foreground, #1d1d1f);">Smart Home Integration</h3><p style="font-size: 1rem; line-height: 1.6; color: var(--muted-foreground, #86868b);">Steuerung und Überwachung per Smartphone-App von überall auf der Welt.</p></div>
+                        <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="eye" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--foreground, #1d1d1f);">Detailerkennung</h3>
+                            <p style="font-size: 1rem; line-height: 1.6; color: var(--muted-foreground, #86868b);">
+                                Wie gut muss die Detailerkennung sein? (Gesichter, Kennzeichen)
+                            </p>
+                        </div>
                     </div>
                 </div>
+
                 <div class="card-apple scroll-reveal" style="transition-delay: 0.3s;">
                     <div class="flex items-start gap-4">
-                        <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;"><i data-lucide="radio" style="width: 24px; height: 24px; color: white;"></i></div>
-                        <div><h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--foreground, #1d1d1f);">Funk oder Kabel</h3><p style="font-size: 1rem; line-height: 1.6; color: var(--muted-foreground, #86868b);">Flexible Installation per Funk oder als kabelgebundenes System – je nach Anforderung.</p></div>
+                        <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="cloud-rain" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--foreground, #1d1d1f);">Umwelteinflüsse</h3>
+                            <p style="font-size: 1rem; line-height: 1.6; color: var(--muted-foreground, #86868b);">
+                                Welchen Umwelteinflüssen ist das System ausgesetzt?
+                            </p>
+                        </div>
                     </div>
                 </div>
+
                 <div class="card-apple scroll-reveal" style="transition-delay: 0.4s;">
                     <div class="flex items-start gap-4">
-                        <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;"><i data-lucide="phone-call" style="width: 24px; height: 24px; color: white;"></i></div>
-                        <div><h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--foreground, #1d1d1f);">Aufschaltung möglich</h3><p style="font-size: 1rem; line-height: 1.6; color: var(--muted-foreground, #86868b);">Optional: Direktverbindung zu Sicherheitsdiensten oder Notrufzentralen.</p></div>
+                        <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="home" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--foreground, #1d1d1f);">Bauliche Gegebenheiten</h3>
+                            <p style="font-size: 1rem; line-height: 1.6; color: var(--muted-foreground, #86868b);">
+                                Bauliche Gegebenheiten (z.B. Gegenlicht)
+                            </p>
+                        </div>
                     </div>
                 </div>
+
                 <div class="card-apple scroll-reveal" style="transition-delay: 0.5s;">
                     <div class="flex items-start gap-4">
-                        <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;"><i data-lucide="settings" style="width: 24px; height: 24px; color: white;"></i></div>
-                        <div><h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--foreground, #1d1d1f);">Individuelle Konfiguration</h3><p style="font-size: 1rem; line-height: 1.6; color: var(--muted-foreground, #86868b);">Maßgeschneiderte Einstellungen für Ihre spezifischen Sicherheitsbedürfnisse.</p></div>
+                        <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="wifi" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--foreground, #1d1d1f);">Übertragungsart</h3>
+                            <p style="font-size: 1rem; line-height: 1.6; color: var(--muted-foreground, #86868b);">
+                                Funkgesteuert oder drahtgebunden?
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- IMAGE GALLERY -->
     <section class="section-apple">
-        <div class="grid md:grid-cols-4 gap-4 scroll-reveal">
-            <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.04));"><img src="../images/alarmanlagen-detail-02-abus-kompo-24-zu-10.jpg" alt="Alarm Detail" style="width: 100%; height: 200px; object-fit: cover; display: block;"></div>
-            <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.04));"><img src="../images/alarmanlagen-detail-04-abus-kompo-24-zu-10.jpg" alt="Alarm Komponente" style="width: 100%; height: 200px; object-fit: cover; display: block;"></div>
-            <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.04));"><img src="../images/alarmanlagen-detail-05-abus-kompo-24-zu-10.jpg" alt="Alarm System" style="width: 100%; height: 200px; object-fit: cover; display: block;"></div>
-            <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.04));"><img src="../images/smart-screen-with-smart-home-apps-wall-modern-living-room-high-quality-photo-1024x683.jpg" alt="Smart Home" style="width: 100%; height: 200px; object-fit: cover; display: block;"></div>
+        <div class="grid md:grid-cols-3 gap-6 scroll-reveal">
+            <div style="border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg, 0 10px 15px rgba(0, 0, 0, 0.05));">
+                <img src="../images/videosysteme-db-01-20-zu-10-1.jpg" alt="Videoüberwachung" style="width: 100%; height: 300px; object-fit: cover; display: block;">
+            </div>
+            <div style="border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg, 0 10px 15px rgba(0, 0, 0, 0.05));">
+                <img src="../images/videosysteme-db-02-20-zu-10.jpg" alt="Video System" style="width: 100%; height: 300px; object-fit: cover; display: block;">
+            </div>
+            <div style="border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg, 0 10px 15px rgba(0, 0, 0, 0.05));">
+                <img src="../images/videosysteme-db-03-20-zu-10.jpg" alt="Kamera Installation" style="width: 100%; height: 300px; object-fit: cover; display: block;">
+            </div>
         </div>
     </section>
 
+    <!-- CAMERA TYPES -->
     <section class="section-apple" style="background: var(--muted, #f5f5f7);">
+        <div class="text-center mb-2xl scroll-reveal">
+            <h2 class="display-lg mb-lg">Für jede Anforderung die richtige Kamera</h2>
+            <p class="body-lg">
+                Verschiedene Kameratypen für unterschiedliche Einsatzbereiche
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <!-- Dome Camera -->
+            <div class="card-apple scroll-reveal">
+                <div class="flex items-start gap-4 mb-lg">
+                    <img src="../images/videosysteme-dome.jpg" alt="Dome Kamera" style="width: 80px; height: 80px; object-fit: cover; border-radius: 12px;">
+                    <div>
+                        <h3 class="headline mb-sm">Dome-Kamera</h3>
+                        <div class="caption">Diskret & geschützt</div>
+                    </div>
+                </div>
+                <p class="body-md">
+                    Wird z.B. gerne zur Überwachung von Verkaufsflächen verwendet. Das Kameraobjektiv liegt
+                    gut geschützt unter einer Plexiglaskuppel. Sehr diskret und in verschiedenen Größen verfügbar.
+                </p>
+            </div>
+
+            <!-- PTZ Camera -->
+            <div class="card-apple scroll-reveal" style="transition-delay: 0.1s;">
+                <div class="flex items-start gap-4 mb-lg">
+                    <img src="../images/videosysteme-ptz.jpg" alt="PTZ Kamera" style="width: 80px; height: 80px; object-fit: cover; border-radius: 12px;">
+                    <div>
+                        <h3 class="headline mb-sm">PTZ-Kamera</h3>
+                        <div class="caption">Schwenken, Neigen, Zoomen</div>
+                    </div>
+                </div>
+                <p class="body-md">
+                    Zur Überwachung großer Flächen. Können geschwenkt und geneigt werden mit bis zu 30facher
+                    optischer Vergrößerung. Pan (Schwenken), Tilt (Neigen) und Zoom.
+                </p>
+            </div>
+
+            <!-- Panorama Camera -->
+            <div class="card-apple scroll-reveal" style="transition-delay: 0.2s;">
+                <div class="flex items-start gap-4 mb-lg">
+                    <div style="width: 80px; height: 80px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="camera" style="width: 40px; height: 40px; color: white;"></i>
+                    </div>
+                    <div>
+                        <h3 class="headline mb-sm">Panorama-Kamera</h3>
+                        <div class="caption">360° Rundumblick</div>
+                    </div>
+                </div>
+                <p class="body-md">
+                    Bietet ein ununterbrochenes 360°-Sichtfeld. An der Decke montiert ermöglicht sie einen
+                    kompletten Rund-um-Blick. Ideal für große Bereiche.
+                </p>
+            </div>
+
+            <!-- Bullet Camera -->
+            <div class="card-apple scroll-reveal" style="transition-delay: 0.3s;">
+                <div class="flex items-start gap-4 mb-lg">
+                    <div style="width: 80px; height: 80px; border-radius: 12px; background: linear-gradient(135deg, var(--kost-red, #FA0016) 0%, #c00012 100%); display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="video" style="width: 40px; height: 40px; color: white;"></i>
+                    </div>
+                    <div>
+                        <h3 class="headline mb-sm">Bulletkamera</h3>
+                        <div class="caption">Robust & wetterfest</div>
+                    </div>
+                </div>
+                <p class="body-md">
+                    Besonders geschützt gegen Zerstörung, Sabotage, Staub und Nässe. Mit IR LED für
+                    Nachtaufnahmen und automatischer Tag/Nacht-Umschaltung.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVANTAGES -->
+    <section class="section-apple">
         <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-2xl scroll-reveal"><h2 class="display-lg mb-lg">Ihre Vorteile mit KOST</h2></div>
+            <div class="text-center mb-2xl scroll-reveal">
+                <h2 class="display-lg mb-lg">Die Vorteile auf einen Blick</h2>
+            </div>
+
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="flex items-start gap-4 scroll-reveal">
-                    <div style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; background: var(--kost-red, #FA0016); display: flex; align-items: center; justify-content: center;"><i data-lucide="check" style="width: 20px; height: 20px; color: white;"></i></div>
-                    <div><h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Professionelle Beratung</h3><p class="body-md">Planung durch erfahrene Sicherheitsexperten</p></div>
+                    <div style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; background: var(--kost-red, #FA0016); display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="check" style="width: 20px; height: 20px; color: white;"></i>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Hochauflösende Bilder</h3>
+                        <p class="body-md">Rund um die Uhr, in digitaler Brillanz</p>
+                    </div>
                 </div>
+
                 <div class="flex items-start gap-4 scroll-reveal" style="transition-delay: 0.1s;">
-                    <div style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; background: var(--kost-red, #FA0016); display: flex; align-items: center; justify-content: center;"><i data-lucide="check" style="width: 20px; height: 20px; color: white;"></i></div>
-                    <div><h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Hochwertige Markenprodukte</h3><p class="body-md">Von namhaften Herstellern wie ABUS</p></div>
+                    <div style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; background: var(--kost-red, #FA0016); display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="check" style="width: 20px; height: 20px; color: white;"></i>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Maßgeschneiderte Lösungen</h3>
+                        <p class="body-md">Ganz gleich, um welches Objekt es sich handelt</p>
+                    </div>
                 </div>
+
                 <div class="flex items-start gap-4 scroll-reveal" style="transition-delay: 0.2s;">
-                    <div style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; background: var(--kost-red, #FA0016); display: flex; align-items: center; justify-content: center;"><i data-lucide="check" style="width: 20px; height: 20px; color: white;"></i></div>
-                    <div><h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Fachgerechte Installation</h3><p class="body-md">Und Einweisung in die Bedienung</p></div>
+                    <div style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; background: var(--kost-red, #FA0016); display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="check" style="width: 20px; height: 20px; color: white;"></i>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Smarte Anbindung</h3>
+                        <p class="body-md">Bilder auf Smartphone oder Tablet abrufbar</p>
+                    </div>
                 </div>
+
                 <div class="flex items-start gap-4 scroll-reveal" style="transition-delay: 0.3s;">
-                    <div style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; background: var(--kost-red, #FA0016); display: flex; align-items: center; justify-content: center;"><i data-lucide="check" style="width: 20px; height: 20px; color: white;"></i></div>
-                    <div><h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Wartung und Service</h3><p class="body-md">Für langfristige Sicherheit</p></div>
+                    <div style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; background: var(--kost-red, #FA0016); display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="check" style="width: 20px; height: 20px; color: white;"></i>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Flexible Übertragung</h3>
+                        <p class="body-md">Per Funk oder Kabel</p>
+                    </div>
                 </div>
+
                 <div class="flex items-start gap-4 scroll-reveal" style="transition-delay: 0.4s;">
-                    <div style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; background: var(--kost-red, #FA0016); display: flex; align-items: center; justify-content: center;"><i data-lucide="check" style="width: 20px; height: 20px; color: white;"></i></div>
-                    <div><h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Erweiterbar</h3><p class="body-md">Durch Videoüberwachung, Zutrittskontrolle und mehr</p></div>
+                    <div style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; background: var(--kost-red, #FA0016); display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="check" style="width: 20px; height: 20px; color: white;"></i>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Wichtige Beweisbilder</h3>
+                        <p class="body-md">Für Polizei und Versicherung</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-apple">
+    <!-- CTA SECTION -->
+    <section class="section-apple" style="background: var(--muted, #f5f5f7);">
         <div class="text-center scroll-reveal">
-            <h2 class="display-md mb-lg">Bereit für professionelle Alarmsysteme?</h2>
-            <p class="body-lg mb-2xl">Vereinbaren Sie jetzt ein unverbindliches Beratungsgespräch</p>
-            <a href="../index.html#contact" class="btn-apple btn-primary"><i data-lucide="phone" style="width: 20px; height: 20px;"></i> Kostenlose Beratung anfragen</a>
+            <h2 class="display-md mb-lg">Bereit für professionelle Videoüberwachung?</h2>
+            <p class="body-lg mb-2xl">
+                Vereinbaren Sie jetzt ein unverbindliches Beratungsgespräch
+            </p>
+            <a href="../index.html#contact" class="btn-apple btn-primary">
+                <i data-lucide="phone" style="width: 20px; height: 20px;"></i>
+                Jetzt Beratung anfragen
+            </a>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer-apple">
         <div class="footer-grid">
-            <div class="footer-section"><h4>Leistungen</h4><a href="videoueberwachung.html" class="footer-link">Videoüberwachung</a><a href="alarmanlagen.html" class="footer-link">Alarmanlagen</a><a href="../index.html#services" class="footer-link">Zutrittskontrolle</a><a href="../index.html#services" class="footer-link">Briefkastenanlagen</a><a href="../index.html#services" class="footer-link">Mechanische Sicherung</a></div>
-            <div class="footer-section"><h4>Unternehmen</h4><a href="../index.html#about" class="footer-link">Über uns</a><a href="../index.html#process" class="footer-link">Ablauf</a><a href="../index.html#contact" class="footer-link">Kontakt</a></div>
-            <div class="footer-section"><h4>Kontakt</h4><p class="footer-link">Hermannstr. 162a<br>44263 Dortmund</p><p class="footer-link">Tel: 0231 / 98 98 351<br>Mobil: 0172 5666814</p></div>
-            <div class="footer-section"><h4>Rechtliches</h4><a href="#impressum" class="footer-link">Impressum</a><a href="#datenschutz" class="footer-link">Datenschutz</a><a href="#agb" class="footer-link">AGB</a></div>
+            <div class="footer-section">
+                <h4>Leistungen</h4>
+                <a href="videoueberwachung.html" class="footer-link">Videoüberwachung</a>
+                <a href="../index.html#services" class="footer-link">Alarmanlagen</a>
+                <a href="../index.html#services" class="footer-link">Zutrittskontrolle</a>
+                <a href="../index.html#services" class="footer-link">Briefkastenanlagen</a>
+                <a href="../index.html#services" class="footer-link">Mechanische Sicherung</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Unternehmen</h4>
+                <a href="../index.html#about" class="footer-link">Über uns</a>
+                <a href="../index.html#process" class="footer-link">Ablauf</a>
+                <a href="../index.html#contact" class="footer-link">Kontakt</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <p class="footer-link">Hermannstr. 162a<br>44263 Dortmund</p>
+                <p class="footer-link">Tel: 0231 / 98 98 351<br>Mobil: 0172 5666814</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Rechtliches</h4>
+                <a href="#impressum" class="footer-link">Impressum</a>
+                <a href="#datenschutz" class="footer-link">Datenschutz</a>
+                <a href="#agb" class="footer-link">AGB</a>
+            </div>
         </div>
-        <div class="footer-bottom"><p>© 2025 KOST Sicherheitstechnik. Alle Rechte vorbehalten.</p></div>
+
+        <div class="footer-bottom">
+            <p>© 2025 KOST Sicherheitstechnik. Alle Rechte vorbehalten.</p>
+        </div>
     </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navigation scroll effect
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('active');
+                if (isOpen) {
+                    mobileMenu.classList.remove('active');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                } else {
+                    mobileMenu.classList.add('active');
+                    mobileToggle.setAttribute('aria-expanded', 'true');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        }
+
+        if (mobileClose && mobileMenu) {
+            mobileClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        }
 
         // Mobile dropdown toggle
         const mobileDropdownToggle = document.getElementById('mobileDropdownToggle');
@@ -247,6 +581,15 @@
         }
 
         // Close mobile menu when clicking on a link (except dropdown toggle)
-    <script>lucide.createIcons();const nav=document.getElementById('mainNav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.pageYOffset>50);});const observer=new IntersectionObserver(e=>{e.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('active');});},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});document.querySelectorAll('.scroll-reveal').forEach(el=>observer.observe(el));const mobileToggle=document.getElementById('mobileToggle'),mobileMenu=document.getElementById('mobileMenu'),mobileClose=document.getElementById('mobileClose');mobileToggle?.addEventListener('click',()=>{mobileMenu.classList.add('active');mobileToggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';});mobileClose?.addEventListener('click',()=>{mobileMenu.classList.remove('active');mobileToggle.setAttribute('aria-expanded','false');document.body.style.overflow='';});document.querySelectorAll('.mobile-menu-link:not(.mobile-dropdown-toggle), .mobile-dropdown-link').forEach(link=>{link.addEventListener('click',()=>{mobileMenu?.classList.remove('active');mobileToggle?.setAttribute('aria-expanded','false');document.body.style.overflow='';});});</script>
+        document.querySelectorAll('.mobile-menu-link:not(.mobile-dropdown-toggle), .mobile-dropdown-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu) {
+                    mobileMenu.classList.remove('active');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
