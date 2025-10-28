@@ -21,3 +21,8 @@ npm-debug.log*
 # Environment
 .env
 .env.local
+
+# Development/Private Files
+CLAUDE.md
+NETLIFY_WORKFLOW.md
+.superdesign/
