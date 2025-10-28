@@ -62,6 +62,47 @@
             color: var(--kost-red, #FA0016);
         }
 
+        /* Mobile Dropdown */
+        .mobile-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-dropdown.active {
+            max-height: 500px;
+        }
+
+        .mobile-dropdown-link {
+            display: block;
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--muted-foreground, #86868b);
+            text-decoration: none;
+            padding: 1rem 0 1rem 2rem;
+            transition: color 0.2s ease;
+        }
+
+        .mobile-dropdown-link:hover {
+            color: var(--kost-red, #FA0016);
+        }
+
+        .mobile-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .mobile-dropdown-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-toggle.active i {
+            transform: rotate(180deg);
+        }
+
         /* Responsive heading fix */
         @media (max-width: 640px) {
             .display-xl {
@@ -101,14 +142,26 @@
         </div>
     </nav>
 
-    <!-- MOBILE MENU -->
+        <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
-        <button id="mobileClose" aria-label="Navigation schließen" style="position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; cursor: pointer;">
+        <button id="mobileClose" aria-label="Navigation schließen" style="position: absolute: top: 1.5rem; right: 2rem; background: none; border: none; cursor: pointer;">
             <i data-lucide="x" style="width: 32px; height: 32px; color: var(--foreground, #1d1d1f);"></i>
         </button>
         <nav>
             <a href="../index.html" class="mobile-menu-link">Startseite</a>
-            <a href="../index.html#services" class="mobile-menu-link">Leistungen</a>
+            <div>
+                <div class="mobile-menu-link mobile-dropdown-toggle" id="mobileDropdownToggle">
+                    <span>Leistungen</span>
+                    <i data-lucide="chevron-down" style="width: 24px; height: 24px;"></i>
+                </div>
+                <div class="mobile-dropdown" id="mobileDropdown">
+                    <a href="videoueberwachung.html" class="mobile-dropdown-link">Videoüberwachung</a>
+                    <a href="alarmanlagen.html" class="mobile-dropdown-link">Alarmanlagen</a>
+                    <a href="zutrittskontrolle.html" class="mobile-dropdown-link">Zutrittskontrolle</a>
+                    <a href="briefkasten.html" class="mobile-dropdown-link">Briefkastenanlagen</a>
+                    <a href="mechanische-sicherung.html" class="mobile-dropdown-link">Mechanische Sicherung</a>
+                </div>
+            </div>
             <a href="../index.html#about" class="mobile-menu-link">Über uns</a>
             <a href="../index.html#contact" class="mobile-menu-link">Kontakt</a>
         </nav>
