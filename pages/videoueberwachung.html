@@ -39,6 +39,7 @@
             opacity: 0;
             transform: translateY(-20px);
             transition: opacity 0.3s ease, transform 0.3s ease;
+            overflow-y: auto;
         }
 
         .mobile-menu.active {
@@ -156,7 +157,7 @@
 
         <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
-        <button id="mobileClose" aria-label="Navigation schließen" style="position: absolute: top: 1.5rem; right: 2rem; background: none; border: none; cursor: pointer;">
+        <button id="mobileClose" aria-label="Navigation schließen" style="position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; cursor: pointer;">
             <i data-lucide="x" style="width: 32px; height: 32px; color: var(--foreground, #1d1d1f);"></i>
         </button>
         <nav>
