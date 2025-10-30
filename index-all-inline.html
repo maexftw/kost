@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KOST Sicherheitstechnik - Alle Leistungen in einer Seite: Videoüberwachung, Alarmanlagen, Zutrittskontrolle, Briefkastenanlagen, Mechanische Sicherung.">
+    <title>KOST Sicherheitstechnik – Alle Leistungen</title>
+    <!-- Essenzielle Skripte (notwendig für Darstellung) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+      (function(){
+        const CONSENT_KEY = 'kost_consent_v1';
+        window.__grantConsent = function(){ localStorage.setItem(CONSENT_KEY, JSON.stringify({accepted:true, ts:Date.now()})); location.reload(); };
+        window.__revokeConsent = function(){ localStorage.removeItem(CONSENT_KEY); location.reload(); };
+      })();
+    </script>
+    <!-- Inline theme CSS copied from index-inline.html -->
+    <style>
+// ... existing code ...
+    </style>
+    <!-- Keep the animation and utility styles from index-inline.html -->
+    <style>
+// ... existing code ...
+    </style>
+</head>
+<body>
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" style="position:fixed;inset:auto 0 0 0;background:rgba(255,255,255,.98);backdrop-filter:saturate(180%) blur(12px);border-top:1px solid var(--border,#d2d2d7);z-index:99999;display:none;">
+        <div class="container" style="padding:1rem;display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+            <div class="body-md" style="color:var(--foreground)">Wir verwenden Cookies/Skripte. Nicht notwendige Skripte laden wir erst nach Ihrer Zustimmung.</div>
+            <div style="display:flex;gap:.5rem;">
+                <button class="btn-apple btn-secondary" onclick="__revokeConsent()">Einstellungen zurücksetzen</button>
+                <button class="btn-apple btn-primary" onclick="__grantConsent()">OK</button>
+            </div>
+        </div>
+    </div>
+    <script>
+      (function(){
+        const CONSENT_KEY='kost_consent_v1';
+        let accepted=false; try{accepted=JSON.parse(localStorage.getItem(CONSENT_KEY))?.accepted===true;}catch(e){}
+        if(!accepted){ document.getElementById('cookieBanner').style.display='block'; }
+      })();
+    </script>
+
+    <!-- NAVIGATION -->
+    <nav class="nav-apple" id="mainNav">
+        <div class="container">
+            <div class="flex justify-between items-center">
+                <a href="#top" class="text-xl font-semibold" style="color: var(--foreground, #1d1d1f); text-decoration: none;" aria-label="KOST Sicherheitstechnik Homepage">
+                    <img src="https://github.com/maexftw/kost/blob/main/images/Kost-Logo-seit-1995.png?raw=true" alt="KOST Sicherheitstechnik Logo" style="height: 44px; width: auto; display: block;">
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <div class="relative group">
+                        <a href="#services" class="nav-link-apple flex items-center gap-1">
+                            Leistungen
+                            <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+                        </a>
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300" style="border: 1px solid rgba(0,0,0,0.08);">
+                            <a href="#videoueberwachung" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none;">Videoüberwachung</a>
+                            <a href="#alarmanlagen" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none;">Alarmanlagen</a>
+                            <a href="#zutrittskontrolle" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none;">Zutrittskontrolle</a>
+                            <a href="#briefkasten" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none;">Briefkastenanlagen</a>
+                            <a href="#mechanische-sicherung" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">Mechanische Sicherung</a>
+                        </div>
+                    </div>
+                    <a href="#about" class="nav-link-apple">Über uns</a>
+                    <a href="#process" class="nav-link-apple">Ablauf</a>
+                    <a href="#sicherheitscheck" class="nav-link-apple">Sicherheitscheck</a>
+                    <a href="#contact" class="nav-link-apple">Kontakt</a>
+                </div>
+
+                <button class="md:hidden" id="mobileToggle" aria-label="Navigation öffnen" aria-expanded="false" style="background: none; border: none; cursor: pointer;">
+                    <i data-lucide="menu" style="width: 24px; height: 24px; color: var(--foreground, #1d1d1f);"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button id="mobileClose" aria-label="Navigation schließen" style="position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; cursor: pointer;">
+            <i data-lucide="x" style="width: 32px; height: 32px; color: var(--foreground, #1d1d1f);"></i>
+        </button>
+        <nav>
+            <div>
+                <div class="mobile-menu-link mobile-dropdown-toggle" id="mobileDropdownToggle">
+                    <span>Leistungen</span>
+                    <i data-lucide="chevron-down" style="width: 24px; height: 24px;"></i>
+                </div>
+                <div class="mobile-dropdown" id="mobileDropdown">
+                    <a href="#videoueberwachung" class="mobile-dropdown-link">Videoüberwachung</a>
+                    <a href="#alarmanlagen" class="mobile-dropdown-link">Alarmanlagen</a>
+                    <a href="#zutrittskontrolle" class="mobile-dropdown-link">Zutrittskontrolle</a>
+                    <a href="#briefkasten" class="mobile-dropdown-link">Briefkastenanlagen</a>
+                    <a href="#mechanische-sicherung" class="mobile-dropdown-link">Mechanische Sicherung</a>
+                </div>
+            </div>
+            <a href="#about" class="mobile-menu-link">Über uns</a>
+            <a href="#process" class="mobile-menu-link">Ablauf</a>
+            <a href="#sicherheitscheck" class="mobile-menu-link">Sicherheitscheck</a>
+            <a href="#contact" class="mobile-menu-link">Kontakt</a>
+        </nav>
+    </div>
+
+    <a id="top"></a>
+
+    <!-- HERO (from index) -->
+    <!-- Copy of the hero from index-inline.html for consistency -->
+    <section class="hero-apple hero-pattern">
+        <div class="hero-content">
+            <div class="hero-eyebrow animate-fade-in-up">Seit 1995 in Dortmund</div>
+            <h1 class="display-xl mb-lg animate-fade-in-up delay-200">Ihre Sicherheit.<br>Neu gedacht.</h1>
+            <p class="body-lg mb-2xl animate-fade-in-up delay-400" style="max-width: 680px; margin-left: auto; margin-right: auto;">Professionelle Sicherheitssysteme für Privat und Gewerbe. Mit modernster Technik und über 25 Jahren Erfahrung sorgen wir dafür, dass Sie wirklich sicher sind.</p>
+            <div class="hero-buttons animate-fade-in-up delay-600">
+                <a href="#contact" class="btn-apple btn-primary">Beratung anfragen</a>
+                <a href="#services" class="btn-apple btn-secondary">Mehr erfahren</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES (links point to anchors) -->
+    <section id="services" class="section-apple">
+        <div class="section-header scroll-reveal">
+            <div class="hero-eyebrow mb-md">Unsere Leistungen</div>
+            <h2 class="display-lg mb-lg">Komplett-Lösungen für Ihre Sicherheit</h2>
+            <p class="body-lg">Von der Beratung über die Installation bis zur Wartung – alles aus einer Hand.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="card-apple scroll-reveal">
+                <div class="card-icon"><i data-lucide="video" style="width:28px;height:28px;color:#fff;"></i></div>
+                <h3 class="card-title">Videoüberwachung</h3>
+                <p class="card-text mb-lg">Modernste Kamerasysteme mit Full HD, Nachtsicht und Bewegungserkennung.</p>
+                <a href="#videoueberwachung" class="nav-link-apple" style="color:var(--kost-red);font-weight:500;">Mehr erfahren →</a>
+            </div>
+            <div class="card-apple scroll-reveal" style="transition-delay:.1s;">
+                <div class="card-icon"><i data-lucide="bell" style="width:28px;height:28px;color:#fff;"></i></div>
+                <h3 class="card-title">Alarmanlagen</h3>
+                <p class="card-text mb-lg">Zertifizierte Systeme mit Aufschaltung und sofortiger Benachrichtigung.</p>
+                <a href="#alarmanlagen" class="nav-link-apple" style="color:var(--kost-red);font-weight:500;">Mehr erfahren →</a>
+            </div>
+            <div class="card-apple scroll-reveal" style="transition-delay:.2s;">
+                <div class="card-icon"><i data-lucide="key" style="width:28px;height:28px;color:#fff;"></i></div>
+                <h3 class="card-title">Zutrittskontrolle</h3>
+                <p class="card-text mb-lg">Elektronische Schließsysteme und Zugangskontrollen für maximale Sicherheit.</p>
+                <a href="#zutrittskontrolle" class="nav-link-apple" style="color:var(--kost-red);font-weight:500;">Mehr erfahren →</a>
+            </div>
+            <div class="card-apple scroll-reveal" style="transition-delay:.3s;">
+                <div class="card-icon"><i data-lucide="shield" style="width:28px;height:28px;color:#fff;"></i></div>
+                <h3 class="card-title">Mechanische Sicherung</h3>
+                <p class="card-text mb-lg">Hochwertige Türen, Fenster und Schlösser nach VdS-Standard.</p>
+                <a href="#mechanische-sicherung" class="nav-link-apple" style="color:var(--kost-red);font-weight:500;">Mehr erfahren →</a>
+            </div>
+            <div class="card-apple scroll-reveal" style="transition-delay:.4s;">
+                <div class="card-icon"><i data-lucide="mail" style="width:28px;height:28px;color:#fff;"></i></div>
+                <h3 class="card-title">Briefkastenanlagen</h3>
+                <p class="card-text mb-lg">Moderne Systeme mit Paketboxen und elektronischer Zustellung.</p>
+                <a href="#briefkasten" class="nav-link-apple" style="color:var(--kost-red);font-weight:500;">Mehr erfahren →</a>
+            </div>
+            <div class="card-apple scroll-reveal" style="transition-delay:.5s;">
+                <div class="card-icon"><i data-lucide="clipboard-check" style="width:28px;height:28px;color:#fff;"></i></div>
+                <h3 class="card-title">Sicherheitscheck</h3>
+                <p class="card-text mb-lg">Kostenlose Analyse Ihrer Immobilie mit Empfehlungen.</p>
+                <a href="#contact" class="nav-link-apple" style="color:var(--kost-red);font-weight:500;">Termin vereinbaren →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SICHERHEITSCHECK -->
+    <section id="sicherheitscheck" class="section-apple" style="background: var(--muted);">
+        <div class="section-header scroll-reveal">
+            <div class="hero-eyebrow mb-md">Sicherheitscheck</div>
+            <h2 class="display-lg mb-lg">Jetzt Ihr Objekt prüfen lassen!</h2>
+            <p class="body-lg">Wir identifizieren Sicherheitslücken und geben konkrete Empfehlungen – kostenlos und unverbindlich.</p>
+        </div>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="card-apple scroll-reveal">
+                <div class="flex items-start gap-4 mb-md">
+                    <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#FA0016 0%, #c00012 100%);display:flex;align-items:center;justify-content:center;">
+                        <span style="color:#fff;font-weight:600;">1</span>
+                    </div>
+                    <div>
+                        <h3 class="headline mb-sm">Gespräch</h3>
+                        <p class="body-md">Unverbindliches Erstgespräch in Dortmund & Umgebung inkl. kostenlosem Vor-Ort-Check.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-apple scroll-reveal" style="transition-delay:.1s;">
+                <div class="flex items-start gap-4 mb-md">
+                    <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#FA0016 0%, #c00012 100%);display:flex;align-items:center;justify-content:center;">
+                        <span style="color:#fff;font-weight:600;">2</span>
+                    </div>
+                    <div>
+                        <h3 class="headline mb-sm">Planung</h3>
+                        <p class="body-md">Passgenaue Maßnahmen – für Privat und Gewerbe, nachhaltig ausgelegt.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-apple scroll-reveal" style="transition-delay:.2s;">
+                <div class="flex items-start gap-4 mb-md">
+                    <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#FA0016 0%, #c00012 100%);display:flex;align-items:center;justify-content:center;">
+                        <span style="color:#fff;font-weight:600;">3</span>
+                    </div>
+                    <div>
+                        <h3 class="headline mb-sm">Installation & Test</h3>
+                        <p class="body-md">Professionelle Montage und umfassender Systemtest für höchste Sicherheit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-xl scroll-reveal">
+            <a href="#contact" class="btn-apple btn-primary">Kostenlosen Sicherheitscheck buchen</a>
+        </div>
+    </section>
+
+    <!-- VIDEOÜBERWACHUNG SECTION (extracted key content) -->
+    <section id="videoueberwachung" class="section-apple" style="background: var(--muted);">
+        <div class="section-header scroll-reveal">
+            <div class="hero-eyebrow mb-md">Professionelle Sicherheit</div>
+            <h2 class="display-lg mb-lg">Videoüberwachung</h2>
+            <p class="body-lg">Konzeption, Planung & Installation – moderne IP-Technologie richtig umgesetzt.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 scroll-reveal">
+            <div style="border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);">
+                <img src="images/videosysteme-db-01-20-zu-10-1.jpg" alt="Videoüberwachung" style="width:100%;height:300px;object-fit:cover;display:block;">
+            </div>
+            <div style="border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);">
+                <img src="images/videosysteme-db-02-20-zu-10.jpg" alt="Video System" style="width:100%;height:300px;object-fit:cover;display:block;">
+            </div>
+            <div style="border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);">
+                <img src="images/videosysteme-db-03-20-zu-10.jpg" alt="Kamera Installation" style="width:100%;height:300px;object-fit:cover;display:block;">
+            </div>
+        </div>
+    </section>
+
+    <!-- ALARMANLAGEN SECTION -->
+    <section id="alarmanlagen" class="section-apple">
+        <div class="section-header scroll-reveal">
+            <div class="hero-eyebrow mb-md">Einbruchschutz</div>
+            <h2 class="display-lg mb-lg">Alarmanlagen</h2>
+            <p class="body-lg">Per Funk oder drahtgebunden – professioneller Schutz und Aufschaltung.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 scroll-reveal">
+            <div style="border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);">
+                <img src="images/alarmanlagen-detail-01-abus-kompo-24-zu-10.jpg" alt="Alarmanlage Detail" style="width:100%;height:300px;object-fit:cover;display:block;">
+            </div>
+            <div style="border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);">
+                <img src="images/alarmanlagen-detail-03-abus-kompo-24-zu-10.jpg" alt="Alarm System" style="width:100%;height:300px;object-fit:cover;display:block;">
+            </div>
+            <div style="border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);">
+                <img src="images/alarmanlagen-bb-02-sirene-wand-20-zu-10.jpg" alt="Außensirene" style="width:100%;height:300px;object-fit:cover;display:block;">
+            </div>
+        </div>
+    </section>
+
+    <!-- ZUTRITTSKONTROLLE SECTION -->
+    <section id="zutrittskontrolle" class="section-apple" style="background: var(--muted);">
+        <div class="section-header scroll-reveal">
+            <div class="hero-eyebrow mb-md">Kontrollierter Zugang</div>
+            <h2 class="display-lg mb-lg">Zutrittskontrollsysteme</h2>
+            <p class="body-lg">Von Codeschlössern bis biometrisch – maßgeschneiderte Lösungen.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 scroll-reveal">
+            <div style="border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);">
+                <img src="images/zutrittskontrollen-bb-01-20-zu-10.jpg" alt="Zutrittskontrolle" style="width:100%;height:350px;object-fit:cover;display:block;">
+            </div>
+            <div style="border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);">
+                <img src="images/zutrittskontrolle-dormakaba.jpg" alt="Dormakaba System" style="width:100%;height:350px;object-fit:cover;display:block;">
+            </div>
+        </div>
+    </section>
+
+    <!-- BRIEFKASTEN SECTION -->
+    <section id="briefkasten" class="section-apple">
+        <div class="section-header scroll-reveal">
+            <div class="hero-eyebrow mb-md">Komfort & Sicherheit</div>
+            <h2 class="display-lg mb-lg">Briefkasten-Anlagen</h2>
+            <p class="body-lg">Einzelbriefkästen, Anlagen, Paketboxen und Sprechanlagen.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 scroll-reveal">
+            <img src="images/briefkaesten-db-01-20-zu-10.jpg" alt="Briefkastenanlage" class="w-full h-64 object-cover rounded-2xl shadow-md">
+            <img src="images/briefkaesten-bb-01-KOMPO-22-zu-10.jpg" alt="Briefkasten Detail" class="w-full h-64 object-cover rounded-2xl shadow-md">
+            <img src="images/briefkaesten-db-02-20-zu-10.jpg" alt="Moderne Briefkastenanlage" class="w-full h-64 object-cover rounded-2xl shadow-md">
+        </div>
+    </section>
+
+    <!-- MECHANISCHE SICHERUNG SECTION -->
+    <section id="mechanische-sicherung" class="section-apple" style="background: var(--muted);">
+        <div class="section-header scroll-reveal">
+            <div class="hero-eyebrow mb-md">Einbruchschutz</div>
+            <h2 class="display-lg mb-lg">Mechanische Sicherung</h2>
+            <p class="body-lg">Zusatzschlösser, Panzerriegel, Stangenschlösser, Fenster- und Scharniersicherungen.</p>
+        </div>
+        <div class="max-w-4xl mx-auto scroll-reveal" style="border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg);">
+            <img src="images/mechanische-sicherung-einbrecher-1024x512.jpg" alt="Einbruchschutz" class="w-full rounded-2xl">
+        </div>
+    </section>
+
+    <!-- ABOUT, PROCESS, REFERENCES, CONTACT copied from index -->
+    <section id="about" class="split-apple" style="background: var(--muted);">
+        <div class="split-image scroll-reveal">
+            <img src="images/1255864-3-von-4.jpg" alt="Torsten Kost" style="aspect-ratio:4/5;object-fit:cover;">
+        </div>
+        <div class="split-content scroll-reveal" style="transition-delay:.2s;">
+            <div class="hero-eyebrow mb-md">Über KOST</div>
+            <h2 class="display-md mb-lg">30 Jahre Erfahrung in Sicherheitstechnik</h2>
+            <p class="body-md mb-lg">Seit 1995 sind wir Ihr zuverlässiger Partner in Dortmund und Umgebung.</p>
+            <a href="#contact" class="btn-apple btn-primary">Persönlich beraten lassen</a>
+        </div>
+    </section>
+
+    <section id="process" class="section-apple">
+        <div class="section-header scroll-reveal">
+            <div class="hero-eyebrow mb-md">Unser Ablauf</div>
+            <h2 class="display-lg mb-lg">So einfach zu mehr Sicherheit</h2>
+            <p class="body-lg">Beratung, Planung, Umsetzung.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-12" style="margin-top: 4rem;">
+            <div class="text-center scroll-reveal"><div style="width:80px;height:80px;margin:0 auto 2rem;background:linear-gradient(135deg,#FA0016 0%,#c00012 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 25px rgba(250,0,22,.2);"><span style="font-size:2rem;font-weight:600;color:#fff;">1</span></div><h3 class="headline mb-md">Analyse</h3><p class="body-md">Vor-Ort-Begehung und Schwachstellenanalyse.</p></div>
+            <div class="text-center scroll-reveal" style="transition-delay:.2s;"><div style="width:80px;height:80px;margin:0 auto 2rem;background:linear-gradient(135deg,#FA0016 0%,#c00012 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 25px rgba(250,0,22,.2);"><span style="font-size:2rem;font-weight:600;color:#fff;">2</span></div><h3 class="headline mb-md">Planung</h3><p class="body-md">Maßgeschneidertes Sicherheitskonzept.</p></div>
+            <div class="text-center scroll-reveal" style="transition-delay:.4s;"><div style="width:80px;height:80px;margin:0 auto 2rem;background:linear-gradient(135deg,#FA0016 0%,#c00012 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 25px rgba(250,0,22,.2);"><span style="font-size:2rem;font-weight:600;color:#fff;">3</span></div><h3 class="headline mb-md">Umsetzung</h3><p class="body-md">Installation durch zertifizierte Fachkräfte.</p></div>
+        </div>
+    </section>
+
+    <section class="section-apple" style="background: var(--muted);">
+        <div class="section-header scroll-reveal">
+            <div class="hero-eyebrow mb-md">Referenzen</div>
+            <h2 class="display-lg mb-lg">Vertrauen durch Erfahrung</h2>
+            <p class="body-lg">Über 500 zufriedene Kunden in Dortmund und Umgebung</p>
+        </div>
+        <style>
+            .logo-slider{position:relative;overflow:hidden;mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent)}
+            .logo-track{display:flex;gap:2.25rem;align-items:center;animation:logoslide 28s linear infinite}
+            .logo-item{flex:0 0 auto;opacity:.9;transition:opacity .2s ease}
+            .logo-item:hover{opacity:1}
+            @keyframes logoslide{from{transform:translateX(0)}to{transform:translateX(-50%)} }
+            .logo-slider:hover .logo-track{animation-play-state:paused}
+            /* Platzhalter-Kacheln für Logos (einheitliche Fläche) */
+            .logo-box{display:flex;align-items:center;justify-content:center;min-width:160px;min-height:56px;padding:8px 18px;border:1px solid var(--border,#d2d2d7);border-radius:12px;background:#fff;color:var(--muted-foreground,#86868b);font-weight:600;letter-spacing:.01em;white-space:nowrap}
+            .logo-box span{color:var(--muted-foreground,#86868b)}
+            @media (max-width:768px){.logo-box{min-width:140px;min-height:48px;padding:6px 14px;font-size:.9rem}}
+        </style>
+        <div class="logo-slider scroll-reveal">
+            <div class="logo-track" aria-label="Kundenlogos (scrollend)">
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Deutsches Fußballmuseum"><span>Deutsches Fußballmuseum</span></div></div>
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo WDI Schwerte"><span>WDI Schwerte</span></div></div>
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Becker Group Hattingen"><span>Becker Group Hattingen</span></div></div>
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Universität Münster"><span>Universität Münster</span></div></div>
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo HSE Getränkewelt Essen"><span>HSE Getränkewelt Essen</span></div></div>
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Kurt Pietsch GmbH Group"><span>Kurt Pietsch GmbH Group</span></div></div>
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Boss Steinlen Group"><span>Boss Steinlen Group</span></div></div>
+                <!-- Duplikat für endloses Scrollen -->
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Deutsches Fußballmuseum"><span>Deutsches Fußballmuseum</span></div></div>
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo WDI Schwerte"><span>WDI Schwerte</span></div></div>
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Becker Group Hattingen"><span>Becker Group Hattingen</span></div></div>
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Universität Münster"><span>Universität Münster</span></div></div>
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo HSE Getränkewelt Essen"><span>HSE Getränkewelt Essen</span></div></div>
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Kurt Pietsch GmbH Group"><span>Kurt Pietsch GmbH Group</span></div></div>
+                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Boss Steinlen Group"><span>Boss Steinlen Group</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-apple">
+        <div class="section-header scroll-reveal">
+            <h2 class="display-lg mb-lg">Bereit für mehr Sicherheit?</h2>
+            <p class="body-lg mb-2xl">Vereinbaren Sie jetzt ein unverbindliches Erstgespräch.</p>
+        </div>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+            <!-- Kontaktformular (Formspree) -->
+            <div class="card-apple scroll-reveal" role="form" aria-labelledby="contactFormTitle">
+                <h3 id="contactFormTitle" class="headline mb-md">Kontaktformular</h3>
+                <form id="contactForm" action="https://formspree.io/f/FORM_ID" method="POST" novalidate>
+                    <input type="text" name="_subject" value="Neue Anfrage über Website" hidden>
+                    <div style="display:none;">
+                        <label>Bitte nicht ausfüllen: <input name="_gotcha" tabindex="-1"></label>
+                    </div>
+                    <div style="display:grid;gap:12px;">
+                        <label style="display:grid;gap:6px;">
+                            <span class="caption">Name*</span>
+                            <input name="name" required aria-required="true" placeholder="Ihr Name" style="padding:.8rem 1rem;border:1px solid var(--border);border-radius:12px;background:#fff;">
+                        </label>
+                        <label style="display:grid;gap:6px;">
+                            <span class="caption">Telefon*</span>
+                            <input type="tel" name="phone" required aria-required="true" placeholder="z. B. +49 231 ..." style="padding:.8rem 1rem;border:1px solid var(--border);border-radius:12px;background:#fff;">
+                        </label>
+                        <label style="display:grid;gap:6px;">
+                            <span class="caption">E‑Mail*</span>
+                            <input type="email" name="email" required aria-required="true" placeholder="ihre@mail.de" style="padding:.8rem 1rem;border:1px solid var(--border);border-radius:12px;background:#fff;">
+                        </label>
+                        <label style="display:grid;gap:6px;">
+                            <span class="caption">Ihr Anliegen*</span>
+                            <textarea name="message" required aria-required="true" placeholder="Worum geht es?" rows="5" style="padding:.8rem 1rem;border:1px solid var(--border);border-radius:12px;background:#fff;resize:vertical;"></textarea>
+                        </label>
+                        <button type="submit" class="btn-apple btn-primary" style="margin-top:.5rem;">Anfrage senden</button>
+                        <div id="contactState" class="caption" aria-live="polite" style="min-height:1.25rem;color:var(--muted-foreground);"></div>
+                    </div>
+                </form>
+            </div>
+            <!-- Kontakt-Optionen -->
+            <div class="grid gap-6 scroll-reveal">
+                <a href="tel:+4923198983351" class="card-apple" style="text-decoration:none;">
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <div style="width:56px;height:56px;background:var(--kost-red);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                            <i data-lucide="phone" style="width:24px;height:24px;color:#fff;"></i>
+                        </div>
+                        <div>
+                            <div class="caption mb-sm">Telefon</div>
+                            <div style="font-size:1rem;font-weight:600;color:var(--foreground);">+49 231 / 98 98 351</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://wa.me/491725666814" class="card-apple" style="text-decoration:none;">
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <div style="width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                            <i data-lucide="message-circle" style="width:24px;height:24px;color:#fff;"></i>
+                        </div>
+                        <div>
+                            <div class="caption mb-sm">WhatsApp</div>
+                            <div style="font-size:1rem;font-weight:600;color:var(--foreground);">0172 5666814</div>
+                        </div>
+                    </div>
+                </a>
+                <div class="card-apple" style="text-decoration:none;">
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <div style="width:56px;height:56px;background:var(--foreground);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                            <i data-lucide="map-pin" style="width:24px;height:24px;color:#fff;"></i>
+                        </div>
+                        <div>
+                            <div class="caption mb-sm">Standort</div>
+                            <div style="font-size:.95rem;font-weight:600;color:var(--foreground);line-height:1.4;">Hörder Phoenixseeallee 162a<br>44263 Dortmund</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            (function(){
+                const form = document.getElementById('contactForm');
+                const state = document.getElementById('contactState');
+                if(!form) return;
+                form.addEventListener('submit', async (e)=>{
+                    if(!form.reportValidity()) return;
+                    e.preventDefault();
+                    state.textContent = 'Sende…';
+                    try{
+                        const res = await fetch(form.action, { method:'POST', body: new FormData(form), headers: { 'Accept':'application/json' }});
+                        if (res.ok){
+                            state.textContent = 'Danke! Wir melden uns kurzfristig.';
+                            form.reset();
+                        } else {
+                            state.textContent = 'Senden fehlgeschlagen. Bitte später erneut versuchen.';
+                        }
+                    }catch(err){ state.textContent = 'Netzwerkfehler. Bitte später erneut versuchen.'; }
+                });
+            })();
+        </script>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-apple">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Leistungen</h4>
+                <a href="#videoueberwachung" class="footer-link">Videoüberwachung</a>
+                <a href="#alarmanlagen" class="footer-link">Alarmanlagen</a>
+                <a href="#zutrittskontrolle" class="footer-link">Zutrittskontrolle</a>
+                <a href="#briefkasten" class="footer-link">Briefkastenanlagen</a>
+                <a href="#mechanische-sicherung" class="footer-link">Mechanische Sicherung</a>
+            </div>
+            <div class="footer-section">
+                <h4>Unternehmen</h4>
+                <a href="#about" class="footer-link">Über uns</a>
+                <a href="#process" class="footer-link">Ablauf</a>
+                <a href="#contact" class="footer-link">Kontakt</a>
+            </div>
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <p class="footer-link">Hörder Phoenixseeallee 162a<br>44263 Dortmund</p>
+                <p class="footer-link">Tel: +49 231 / 98 98 351<br>E-Mail: info@kost-sicherheitstechnik.de</p>
+            </div>
+            <div class="footer-section">
+                <h4>Rechtliches</h4>
+                <a href="pages/impressum.html" class="footer-link">Impressum</a>
+                <a href="pages/datenschutz.html" class="footer-link">Datenschutz</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 KOST Sicherheitstechnik. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts: copy from index-inline.html (smooth scroll, observers, mobile menu) -->
+    <script>
+        lucide.createIcons();
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.pageYOffset > 50);
+        });
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } }); }, observerOptions);
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '#impressum' && href !== '#datenschutz' && href !== '#agb') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('active');
+                if (isOpen) { mobileMenu.classList.remove('active'); mobileToggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+                else { mobileMenu.classList.add('active'); mobileToggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
+            });
+        }
+        if (mobileClose && mobileMenu) {
+            mobileClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        }
+        const mobileDropdownToggle = document.getElementById('mobileDropdownToggle');
+        const mobileDropdown = document.getElementById('mobileDropdown');
+        if (mobileDropdownToggle && mobileDropdown) {
+            mobileDropdownToggle.addEventListener('click', () => {
+                mobileDropdown.classList.toggle('active');
+                mobileDropdownToggle.classList.toggle('active');
+            });
+        }
+        document.querySelectorAll('.mobile-menu-link:not(.mobile-dropdown-toggle), .mobile-dropdown-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu) { mobileMenu.classList.remove('active'); mobileToggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+            });
+        });
+    </script>
+</body>
+</html>
+
+

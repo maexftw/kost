@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung - KOST Sicherheitstechnik</title>
+    <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" style="position:fixed;inset:auto 0 0 0;background:rgba(255,255,255,.98);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-top:1px solid var(--border,#e5e5e7);z-index:99999;display:none;box-shadow:0 -4px 6px rgba(0,0,0,0.05);">
+        <div class="container" style="padding:1.5rem var(--spacing-lg);display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+            <div class="body-md" style="color:var(--foreground,#1d1d1f);flex:1;min-width:280px;">Wir verwenden Cookies/Skripte. Nicht notwendige Skripte laden wir erst nach Ihrer Zustimmung.</div>
+            <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+                <button class="btn-apple btn-secondary" onclick="__revokeConsent()" style="padding:.6rem 1.25rem;font-size:.9rem;">Einstellungen zurücksetzen</button>
+                <button class="btn-apple btn-primary" onclick="__grantConsent()" style="padding:.6rem 1.5rem;font-size:.9rem;">OK</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){
+            const CONSENT_KEY = 'kost_consent_session';
+            function hasConsent(){ try { return sessionStorage.getItem(CONSENT_KEY) === 'true'; } catch(e){ return false; } }
+            function setConsent(accepted){ try { sessionStorage.setItem(CONSENT_KEY, accepted ? 'true' : 'false'); } catch(e){} }
+            window.__grantConsent = function(){ setConsent(true); document.getElementById('cookieBanner').style.display='none'; };
+            window.__revokeConsent = function(){ setConsent(false); document.getElementById('cookieBanner').style.display='none'; };
+            if(!hasConsent()){ document.getElementById('cookieBanner').style.display='block'; }
+        })();
+    </script>
+    <nav class="nav-apple"><div class="container"><a href="../index.html" class="nav-link-apple">← Zurück</a></div></nav>
+    <section class="section-apple">
+        <div class="container" style="max-width: 900px;">
+            <h1 class="display-md mb-lg">Datenschutzerklärung</h1>
+            <div class="body-md" style="display:grid;gap:1rem;">
+                <p>Wir freuen uns über Ihr Interesse an unserem Unternehmen. Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Nachfolgend informieren wir Sie über die Verarbeitung personenbezogener Daten beim Besuch dieser Website.</p>
+                <h2 class="headline mt-lg mb-sm">Verantwortlicher</h2>
+                <p>KOST Sicherheitstechnik, Hörder Phoenixseeallee 162a, 44263 Dortmund, E‑Mail: info@kost-sicherheitstechnik.de</p>
+                <h2 class="headline mt-lg mb-sm">Zwecke und Rechtsgrundlagen</h2>
+                <p>Wir verarbeiten Daten zur Bereitstellung der Website, zur Beantwortung von Kontaktanfragen und zur Erfüllung vertraglicher Pflichten (Art. 6 Abs. 1 lit. b, f DSGVO).</p>
+                <h2 class="headline mt-lg mb-sm">Kontaktformular</h2>
+                <p>Die von Ihnen eingegebenen Daten (Name, Telefonnummer, E‑Mail, Nachricht) werden zur Bearbeitung Ihrer Anfrage verwendet. Die Übermittlung erfolgt über Formspree. Weitere Informationen finden Sie beim Anbieter.</p>
+                <h2 class="headline mt-lg mb-sm">Speicherdauer</h2>
+                <p>Wir speichern personenbezogene Daten nur so lange, wie es für die genannten Zwecke erforderlich ist bzw. gesetzliche Aufbewahrungsfristen bestehen.</p>
+                <h2 class="headline mt-lg mb-sm">Ihre Rechte</h2>
+                <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie Widerspruch gegen die Verarbeitung. Hierzu kontaktieren Sie uns unter den oben genannten Daten.</p>
+                <h2 class="headline mt-lg mb-sm">Cookies</h2>
+                <p>Wir setzen ein Einwilligungs-Banner ein. Nicht notwendige Skripte werden erst nach Ihrer Zustimmung geladen. Sie können Ihre Einwilligung jederzeit widerrufen.</p>
+            </div>
+        </div>
+    </section>
+    <footer class="footer-apple"><div class="footer-bottom"><p>© 2025 KOST Sicherheitstechnik</p></div></footer>
+</body>
+</html>
+
+
