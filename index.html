@@ -19,13 +19,13 @@
           --foreground: #1d1d1f;
           --card: #ffffff;
           --card-foreground: #1d1d1f;
-          --muted: #f8f8f9;
+          --muted: #e8e8eb;
           --muted-foreground: #6e6e73;
           --accent: #0071e3;
           --accent-foreground: #ffffff;
           --destructive: #ff3b30;
           --border: #e5e5e7;
-          --input: #f8f8f9;
+          --input: #e8e8eb;
           --ring: #0071e3;
 
           /* KOST Brand Colors */
@@ -33,7 +33,7 @@
           --kost-black: #1d1d1f;
           --kost-white: #ffffff;
           --kost-gray: #6e6e73;
-          --kost-light-gray: #f8f8f9;
+          --kost-light-gray: #e8e8eb;
 
           /* Typography - SF Pro inspired */
           --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -188,7 +188,7 @@
           text-align: center;
           padding: var(--spacing-4xl) var(--spacing-lg);
           position: relative;
-          background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+          background: linear-gradient(180deg, #ffffff 0%, #e8e8eb 100%);
         }
 
         .hero-content {
@@ -535,8 +535,8 @@
         /* Grid pattern background */
         .hero-pattern {
             background-image:
-                linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
         }
 
@@ -940,13 +940,60 @@
         </div>
     </section>
 
+    <!-- SICHERHEITSCHECK SECTION -->
+    <section id="sicherheitscheck" class="section-apple hero-pattern">
+        <div class="section-header scroll-reveal">
+            <div class="hero-eyebrow mb-md">Sicherheitscheck</div>
+            <h2 class="display-lg mb-lg">Ihre Sicherheit kostenlos prüfen lassen</h2>
+            <p class="body-lg mb-2xl">
+                Lassen Sie Ihr Objekt von unserem Experten kostenlos analysieren und erhalten Sie konkrete Handlungsempfehlungen.
+            </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+            <div class="card-apple scroll-reveal">
+                <div style="display: grid; gap: 1.5rem;">
+                    <div>
+                        <h3 class="headline mb-md">Was Sie erwartet:</h3>
+                        <ul style="list-style: none; padding: 0; display: grid; gap: 1rem;">
+                            <li style="display: flex; align-items: start; gap: 0.75rem;">
+                                <i data-lucide="check-circle" style="width: 24px; height: 24px; color: var(--kost-red); flex-shrink: 0; margin-top: 2px;"></i>
+                                <span class="body-md">Kostenlose Vor-Ort-Begehung durch unseren Experten</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 0.75rem;">
+                                <i data-lucide="check-circle" style="width: 24px; height: 24px; color: var(--kost-red); flex-shrink: 0; margin-top: 2px;"></i>
+                                <span class="body-md">Detaillierte Schwachstellenanalyse Ihres Objekts</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 0.75rem;">
+                                <i data-lucide="check-circle" style="width: 24px; height: 24px; color: var(--kost-red); flex-shrink: 0; margin-top: 2px;"></i>
+                                <span class="body-md">Konkrete Handlungsempfehlungen für mehr Sicherheit</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 0.75rem;">
+                                <i data-lucide="check-circle" style="width: 24px; height: 24px; color: var(--kost-red); flex-shrink: 0; margin-top: 2px;"></i>
+                                <span class="body-md">Unverbindliches Gespräch ohne Verkaufsdruck</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="border-top: 1px solid var(--border); padding-top: 1.5rem;">
+                        <a href="#contact" class="btn-apple btn-primary" style="width: 100%; justify-content: center;">
+                            Jetzt kostenlosen Sicherheitscheck vereinbaren
+                        </a>
+                        <p class="caption text-center" style="margin-top: 1rem; color: var(--muted-foreground);">
+                            Oder rufen Sie uns direkt an: <a href="tel:+4923198983351" style="color: var(--kost-red); text-decoration: none; font-weight: 500;">+49 231 / 98 98 351</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- REFERENCES -->
     <section id="references" class="section-apple hero-pattern" style="background: var(--muted);">
         <div class="section-header scroll-reveal">
             <div class="hero-eyebrow mb-md">Referenzen</div>
             <h2 class="display-lg mb-lg">Vertrauen durch Erfahrung</h2>
             <p class="body-lg">
-                Über 500 zufriedene Kunden in Dortmund und Umgebung
+                Über 1600 zufriedene Kunden in Dortmund und Umgebung
             </p>
         </div>
 
@@ -959,20 +1006,24 @@
             .logo-slider:hover .logo-track{animation-play-state:paused}
             .logo-box{display:flex;align-items:center;justify-content:center;min-width:160px;min-height:56px;padding:8px 18px;border:1px solid var(--border,#d2d2d7);border-radius:12px;background:#fff;color:var(--muted-foreground,#86868b);font-weight:600;letter-spacing:.01em;white-space:nowrap}
             .logo-box span{color:var(--muted-foreground,#86868b)}
-            @media (max-width:768px){.logo-box{min-width:140px;min-height:48px;padding:6px 14px;font-size:.9rem}}
+            @media (max-width:768px){
+                .logo-box{min-width:140px;min-height:48px;padding:6px 14px;font-size:.9rem}
+                .logo-slider{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scrollbar-width:none;mask-image:none}
+                .logo-slider::-webkit-scrollbar{display:none}
+                .logo-track{animation:none;scroll-snap-type:x mandatory;gap:1.5rem}
+                .logo-item{scroll-snap-align:start}
+            }
         </style>
         <div class="logo-slider scroll-reveal">
             <div class="logo-track" aria-label="Kundenlogos (scrollend)">
                 <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Deutsches Fußballmuseum"><span>Deutsches Fußballmuseum</span></div></div>
                 <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo WDI Schwerte"><span>WDI Schwerte</span></div></div>
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Becker Group Hattingen"><span>Becker Group Hattingen</span></div></div>
                 <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Universität Münster"><span>Universität Münster</span></div></div>
                 <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo HSE Getränkewelt Essen"><span>HSE Getränkewelt Essen</span></div></div>
                 <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Kurt Pietsch GmbH Group"><span>Kurt Pietsch GmbH Group</span></div></div>
                 <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Boss Steinlen Group"><span>Boss Steinlen Group</span></div></div>
                 <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Deutsches Fußballmuseum"><span>Deutsches Fußballmuseum</span></div></div>
                 <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo WDI Schwerte"><span>WDI Schwerte</span></div></div>
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Becker Group Hattingen"><span>Becker Group Hattingen</span></div></div>
                 <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Universität Münster"><span>Universität Münster</span></div></div>
                 <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo HSE Getränkewelt Essen"><span>HSE Getränkewelt Essen</span></div></div>
                 <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Kurt Pietsch GmbH Group"><span>Kurt Pietsch GmbH Group</span></div></div>
