@@ -221,6 +221,7 @@
           font-size: 1.0625rem;
           font-weight: 400;
           padding: 0.75rem 1.75rem;
+          min-height: 44px;
           border-radius: var(--radius-xl);
           border: none;
           cursor: pointer;
@@ -231,6 +232,14 @@
           justify-content: center;
           gap: 0.5rem;
           white-space: nowrap;
+        }
+        
+        @media (max-width: 768px) {
+          .btn-apple {
+            padding: 1rem 2rem;
+            min-height: 48px;
+            font-size: 1rem;
+          }
         }
 
         .btn-primary {
@@ -437,9 +446,47 @@
           .section-apple {
             padding: var(--spacing-2xl) var(--spacing-md);
           }
+          
+          .body-md {
+            font-size: 1rem !important;
+          }
+          
+          .body-lg {
+            font-size: 1.0625rem !important;
+          }
 
           .footer-grid {
             grid-template-columns: 1fr;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .section-apple {
+            padding: var(--spacing-xl) var(--spacing-sm);
+          }
+          
+          .display-xl {
+            font-size: 2rem !important;
+          }
+          
+          .display-lg {
+            font-size: 1.75rem !important;
+          }
+          
+          .display-md {
+            font-size: 1.5rem !important;
+          }
+          
+          .headline {
+            font-size: 1.25rem !important;
+          }
+          
+          .body-md {
+            font-size: 0.9375rem !important;
+          }
+          
+          .body-lg {
+            font-size: 1rem !important;
           }
         }
 
@@ -448,6 +495,18 @@
           max-width: 1440px;
           margin: 0 auto;
           padding: 0 var(--spacing-lg);
+        }
+        
+        @media (max-width: 768px) {
+          .container {
+            padding: 0 var(--spacing-md);
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .container {
+            padding: 0 var(--spacing-sm);
+          }
         }
 
         .text-center {
@@ -1056,27 +1115,38 @@
             .reference-logo .logo-fallback{font-size:.9375rem;font-weight:600;color:var(--muted-foreground,#86868b);letter-spacing:.01em;display:none;text-align:center;padding:.5rem;line-height:1.4}
             
             @media (max-width:1024px){
+                .featured-testimonial{padding:2.5rem;margin-bottom:2.5rem}
                 .featured-testimonial-content{grid-template-columns:180px 1fr;gap:2rem}
                 .featured-logo{min-height:120px;padding:1.25rem}
                 .featured-logo img{max-height:80px}
-                .references-grid{grid-template-columns:repeat(4,1fr)}
+                .references-grid{grid-template-columns:repeat(4,1fr);gap:1.5rem}
                 .reference-logo img{height:70px;max-height:70px}
             }
             @media (max-width:768px){
-                .featured-testimonial{padding:2rem;margin-bottom:2rem}
+                .featured-testimonial{padding:1.5rem;margin-bottom:2rem}
                 .featured-testimonial-content{grid-template-columns:1fr;gap:1.5rem}
-                .featured-logo{min-height:100px}
-                .featured-text p{font-size:1rem}
+                .featured-logo{min-height:100px;padding:1rem}
+                .featured-logo img{max-height:80px}
+                .featured-text p{font-size:1rem;line-height:1.6}
                 .references-grid{grid-template-columns:repeat(3,1fr);gap:1.25rem}
                 .reference-card{height:120px;padding:1.5rem}
                 .reference-logo img{height:60px;max-height:60px}
             }
             @media (max-width:480px){
-                .featured-testimonial{padding:1.5rem}
-                .featured-text p{font-size:.9375rem}
+                .featured-testimonial{padding:1.25rem;margin-bottom:1.5rem}
+                .featured-logo{min-height:90px;padding:0.75rem}
+                .featured-logo img{max-height:70px}
+                .featured-text p{font-size:0.9375rem;line-height:1.6}
                 .references-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
                 .reference-card{height:100px;padding:1rem}
                 .reference-logo img{height:50px;max-height:50px}
+            }
+            @media (max-width:375px){
+                .featured-testimonial{padding:1rem;margin-bottom:1.25rem}
+                .featured-text p{font-size:0.875rem}
+                .references-grid{grid-template-columns:1fr;gap:0.875rem}
+                .reference-card{height:90px;padding:0.875rem}
+                .reference-logo img{height:45px;max-height:45px}
             }
         </style>
         
