@@ -221,6 +221,7 @@
           font-size: 1.0625rem;
           font-weight: 400;
           padding: 0.75rem 1.75rem;
+          min-height: 44px;
           border-radius: var(--radius-xl);
           border: none;
           cursor: pointer;
@@ -231,6 +232,14 @@
           justify-content: center;
           gap: 0.5rem;
           white-space: nowrap;
+        }
+        
+        @media (max-width: 768px) {
+          .btn-apple {
+            padding: 1rem 2rem;
+            min-height: 48px;
+            font-size: 1rem;
+          }
         }
 
         .btn-primary {
@@ -437,9 +446,102 @@
           .section-apple {
             padding: var(--spacing-2xl) var(--spacing-md);
           }
+          
+          .split-apple {
+            padding: var(--spacing-2xl) var(--spacing-md);
+          }
+          
+          .split-image {
+            max-height: 400px;
+            width: 100%;
+          }
+          
+          .split-image img {
+            max-height: 400px;
+            width: 100%;
+            object-fit: cover;
+          }
+          
+          .body-md {
+            font-size: 1rem !important;
+          }
+          
+          .body-lg {
+            font-size: 1.0625rem !important;
+          }
 
           .footer-grid {
             grid-template-columns: 1fr;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .section-apple {
+            padding: var(--spacing-xl) var(--spacing-sm);
+          }
+          
+          .split-apple {
+            padding: var(--spacing-xl) var(--spacing-sm);
+            gap: var(--spacing-lg);
+          }
+          
+          .split-image {
+            max-height: 300px;
+          }
+          
+          .split-image img {
+            max-height: 300px;
+          }
+          
+          .split-content {
+            padding: var(--spacing-md);
+          }
+          
+          .grid.grid-cols-3 {
+            grid-template-columns: 1fr !important;
+            gap: var(--spacing-md) !important;
+          }
+          
+          .display-xl {
+            font-size: 2rem !important;
+          }
+          
+          .display-lg {
+            font-size: 1.75rem !important;
+          }
+          
+          .display-md {
+            font-size: 1.5rem !important;
+          }
+          
+          .headline {
+            font-size: 1.25rem !important;
+          }
+          
+          .body-md {
+            font-size: 0.9375rem !important;
+          }
+          
+          .body-lg {
+            font-size: 1rem !important;
+          }
+        }
+        
+        @media (max-width: 375px) {
+          .split-image {
+            max-height: 250px;
+          }
+          
+          .split-image img {
+            max-height: 250px;
+          }
+          
+          .split-apple {
+            padding: var(--spacing-lg) var(--spacing-sm);
+          }
+          
+          .split-content {
+            padding: var(--spacing-sm);
           }
         }
 
@@ -448,6 +550,18 @@
           max-width: 1440px;
           margin: 0 auto;
           padding: 0 var(--spacing-lg);
+        }
+        
+        @media (max-width: 768px) {
+          .container {
+            padding: 0 var(--spacing-md);
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .container {
+            padding: 0 var(--spacing-sm);
+          }
         }
 
         .text-center {
@@ -848,6 +962,63 @@
         </div>
     </section>
 
+    <!-- DEUTSCHES FUSSBALLMUSEUM SECTION -->
+    <section id="museum" class="split-apple hero-pattern">
+        <div class="split-image scroll-reveal" style="background: white; display: flex; align-items: center; justify-content: center; padding: 3rem;">
+            <div style="text-align: center; max-width: 420px; width: 100%;">
+                <img src="images/logos/67b5989e98af53668eeae5dc_Logo_DFM.svg" alt="Deutsches Fußballmuseum Logo" 
+                     style="max-width: 100%; height: auto; margin: 0 auto 2.5rem; display: block;"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; font-size: 1.5rem; font-weight: 700; color: #1d1d1f; padding: 2rem; line-height: 1.4;">Deutsches Fußballmuseum</div>
+                <h3 class="headline" style="font-size: 1.5rem; margin: 0; line-height: 1.3; color: #1d1d1f;">
+                    setzt auf<br>
+                    <span style="color: var(--kost-red);">Kost Sicherheitstechnik</span>
+                </h3>
+            </div>
+        </div>
+        <style>
+            @media (max-width: 768px) {
+                #museum .split-image {
+                    padding: 2rem 1.5rem !important;
+                }
+                #museum .split-image img {
+                    margin-bottom: 1.5rem !important;
+                }
+            }
+            @media (max-width: 480px) {
+                #museum .split-image {
+                    padding: 1.5rem 1rem !important;
+                }
+                #museum .split-image h3 {
+                    font-size: 1.25rem !important;
+                }
+            }
+        </style>
+        <div class="split-content scroll-reveal" style="transition-delay: 0.2s;">
+            <div class="hero-eyebrow mb-md">Referenzprojekt</div>
+            <h2 class="display-md mb-lg">Maximale Sicherheit – ohne Barrieren</h2>
+            <p class="body-md mb-lg">
+                Hochwertige Exponate, internationale Besucherströme und höchste Sicherheitsanforderungen – das Deutsche Fußballmuseum benötigte ein Sicherheitssystem, das unsichtbar schützt und dennoch maximale Flexibilität bietet.
+            </p>
+
+            <!-- Feature Box -->
+            <div class="card-apple" style="margin-bottom: 2rem; background: var(--muted);">
+                <h4 class="headline mb-sm">Präzise Laserscanner für Exponate</h4>
+                <p class="body-md">
+                    Kost Sicherheitstechnik hat mit modernster Sicherheitstechnik dafür gesorgt, dass Besucher historische Exponate aus nächster Nähe erleben können, ohne die Sicherheit zu gefährden.
+                </p>
+            </div>
+
+            <p class="body-md mb-xl" style="font-weight: 500;">
+                Sehen Sie selbst, wie das Deutsche Fußballmuseum geschützt wird!
+            </p>
+
+            <a href="pages/fussballmuseum.html" class="btn-apple btn-primary">
+                Mehr erfahren
+            </a>
+        </div>
+    </section>
+
     <!-- SPLIT SECTION - ABOUT -->
     <section id="about" class="split-apple hero-pattern" style="background: var(--muted);">
         <div class="split-image scroll-reveal">
@@ -998,36 +1169,179 @@
         </div>
 
         <style>
-            .logo-slider{position:relative;overflow:hidden;mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent)}
-            .logo-track{display:flex;gap:2.25rem;align-items:center;animation:logoslide 28s linear infinite}
-            .logo-item{flex:0 0 auto;opacity:.9;transition:opacity .2s ease}
-            .logo-item:hover{opacity:1}
-            @keyframes logoslide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-            .logo-slider:hover .logo-track{animation-play-state:paused}
-            .logo-box{display:flex;align-items:center;justify-content:center;min-width:160px;min-height:56px;padding:8px 18px;border:1px solid var(--border,#d2d2d7);border-radius:12px;background:#fff;color:var(--muted-foreground,#86868b);font-weight:600;letter-spacing:.01em;white-space:nowrap}
-            .logo-box span{color:var(--muted-foreground,#86868b)}
+            /* Featured Testimonial */
+            .featured-testimonial{background:#fff;border:1px solid var(--border,#d2d2d7);border-radius:var(--radius-lg);padding:3rem;margin:0 auto 3rem;max-width:1000px;box-shadow:0 4px 16px rgba(0,0,0,0.06)}
+            .featured-testimonial-content{display:grid;grid-template-columns:200px 1fr;gap:3rem;align-items:center}
+            .featured-logo{display:flex;align-items:center;justify-content:center;padding:1.5rem;background:#fafafa;border-radius:var(--radius-md);min-height:140px}
+            .featured-logo img{max-width:100%;max-height:100px;object-fit:contain;display:block}
+            .featured-logo .logo-fallback{font-size:1.125rem;font-weight:600;color:var(--muted-foreground,#86868b);letter-spacing:.01em;display:none;text-align:center;padding:.75rem}
+            .featured-text p{font-size:1.0625rem;line-height:1.7;color:var(--muted-foreground,#6e6e73);margin:0 0 1.5rem;font-style:italic}
+            .featured-author{font-size:1rem;font-weight:600;color:var(--foreground,#1d1d1f);font-style:normal}
+            
+            /* Logo Grid */
+            .references-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;max-width:1200px;margin:0 auto}
+            .reference-card{background:#fff;border:1px solid var(--border,#d2d2d7);border-radius:var(--radius-md);padding:2rem;transition:all var(--transition-base);display:flex;align-items:center;justify-content:center;height:140px}
+            .reference-card:hover{border-color:var(--kost-red,#FA0016);box-shadow:0 4px 12px rgba(250,0,22,0.08);transform:translateY(-2px)}
+            .reference-logo{display:flex;align-items:center;justify-content:center;width:100%;height:100%;position:relative}
+            .reference-logo img{width:100%;height:80px;max-width:100%;max-height:80px;object-fit:contain;display:block;filter:grayscale(100%) brightness(0.6) contrast(1.15);opacity:0.95;transition:all var(--transition-base)}
+            .reference-card:hover .reference-logo img{filter:grayscale(0) brightness(1) contrast(1);opacity:1}
+            .reference-logo .logo-fallback{font-size:.9375rem;font-weight:600;color:var(--muted-foreground,#86868b);letter-spacing:.01em;display:none;text-align:center;padding:.5rem;line-height:1.4}
+            
+            @media (max-width:1024px){
+                .featured-testimonial{padding:2.5rem;margin-bottom:2.5rem}
+                .featured-testimonial-content{grid-template-columns:180px 1fr;gap:2rem}
+                .featured-logo{min-height:120px;padding:1.25rem}
+                .featured-logo img{max-height:80px}
+                .references-grid{grid-template-columns:repeat(4,1fr);gap:1.5rem}
+                .reference-logo img{height:70px;max-height:70px}
+            }
             @media (max-width:768px){
-                .logo-box{min-width:140px;min-height:48px;padding:6px 14px;font-size:.9rem}
-                .logo-slider{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scrollbar-width:none;mask-image:none}
-                .logo-slider::-webkit-scrollbar{display:none}
-                .logo-track{animation:none;scroll-snap-type:x mandatory;gap:1.5rem}
-                .logo-item{scroll-snap-align:start}
+                .featured-testimonial{padding:1.5rem;margin-bottom:2rem}
+                .featured-testimonial-content{grid-template-columns:1fr;gap:1.5rem}
+                .featured-logo{min-height:100px;padding:1rem}
+                .featured-logo img{max-height:80px}
+                .featured-text p{font-size:1rem;line-height:1.6}
+                .references-grid{grid-template-columns:repeat(3,1fr);gap:1.25rem}
+                .reference-card{height:120px;padding:1.5rem}
+                .reference-logo img{height:60px;max-height:60px}
+            }
+            @media (max-width:480px){
+                .featured-testimonial{padding:1.25rem;margin-bottom:1.5rem}
+                .featured-logo{min-height:90px;padding:0.75rem}
+                .featured-logo img{max-height:70px}
+                .featured-text p{font-size:0.9375rem;line-height:1.6}
+                .references-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
+                .reference-card{height:100px;padding:1rem}
+                .reference-logo img{height:50px;max-height:50px}
+            }
+            @media (max-width:375px){
+                .featured-testimonial{padding:1rem;margin-bottom:1.25rem}
+                .featured-text p{font-size:0.875rem}
+                .references-grid{grid-template-columns:1fr;gap:0.875rem}
+                .reference-card{height:90px;padding:0.875rem}
+                .reference-logo img{height:45px;max-height:45px}
             }
         </style>
-        <div class="logo-slider scroll-reveal">
-            <div class="logo-track" aria-label="Kundenlogos (scrollend)">
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Deutsches Fußballmuseum"><span>Deutsches Fußballmuseum</span></div></div>
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo WDI Schwerte"><span>WDI Schwerte</span></div></div>
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Universität Münster"><span>Universität Münster</span></div></div>
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo HSE Getränkewelt Essen"><span>HSE Getränkewelt Essen</span></div></div>
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Kurt Pietsch GmbH Group"><span>Kurt Pietsch GmbH Group</span></div></div>
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Boss Steinlen Group"><span>Boss Steinlen Group</span></div></div>
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Deutsches Fußballmuseum"><span>Deutsches Fußballmuseum</span></div></div>
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo WDI Schwerte"><span>WDI Schwerte</span></div></div>
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Universität Münster"><span>Universität Münster</span></div></div>
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo HSE Getränkewelt Essen"><span>HSE Getränkewelt Essen</span></div></div>
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Kurt Pietsch GmbH Group"><span>Kurt Pietsch GmbH Group</span></div></div>
-                <div class="logo-item"><div class="logo-box" aria-label="Platzhalter Logo Boss Steinlen Group"><span>Boss Steinlen Group</span></div></div>
+        
+        <!-- Featured Testimonial -->
+        <div class="featured-testimonial scroll-reveal">
+            <div class="featured-testimonial-content">
+                <div class="featured-logo">
+                    <img src="images/logos/paratos.png" alt="Paratos GmbH Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">Paratos GmbH</span>
+                </div>
+                <div class="featured-text">
+                    <p>"Die Zusammenarbeit mit Kost Sicherheitstechnik verläuft stets professionell und absolut diskret. Die Kommunikation erfolgt auf Augenhöhe, und auftretende Probleme werden zuverlässig innerhalb von 20 Stunden gelöst. Besonders hervorzuheben ist der direkte Ansprechpartner, der für alle Eventualitäten eine passende Lösung findet."</p>
+                    <div class="featured-author">— Thomas Ziegler, Geschäftsführer Paratos GmbH</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WDI Testimonial -->
+        <div class="featured-testimonial scroll-reveal" style="margin-top: 2rem;">
+            <div class="featured-testimonial-content">
+                <div class="featured-logo">
+                    <img src="images/logos/wdi-schwerte.png" alt="WDI Schwerte Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">WDI Schwerte</span>
+                </div>
+                <div class="featured-text">
+                    <p>"Wir sind äußerst zufrieden mit der Zusammenarbeit mit Kost Sicherheitstechnik. Von der ersten Kontaktaufnahme bis zur Umsetzung unserer Sicherheitslösung war der gesamte Prozess geprägt von Professionalität, hoher Flexibilität und einer sehr guten Kommunikation."</p>
+                    <div class="featured-author">— Ralf Rauch, WDI Schwerte</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo Grid -->
+        <div class="references-grid scroll-reveal">
+            <div class="reference-card">
+                <div class="reference-logo">
+                    <img src="images/logos/boss-steinlen.png" alt="BOSS-Steinlen Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">BOSS-Steinlen</span>
+                </div>
+            </div>
+
+            <div class="reference-card">
+                <div class="reference-logo">
+                    <img src="images/logos/fussballmuseum.png" alt="Deutsches Fußballmuseum Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">Deutsches Fußballmuseum</span>
+                </div>
+            </div>
+
+            <div class="reference-card">
+                <div class="reference-logo">
+                    <img src="images/logos/wdi-schwerte.png" alt="WDI Schwerte Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">WDI Schwerte</span>
+                </div>
+            </div>
+
+            <div class="reference-card">
+                <div class="reference-logo">
+                    <img src="images/logos/uni-muenster.png" alt="Universität Münster Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">Universität Münster</span>
+                </div>
+            </div>
+
+            <div class="reference-card">
+                <div class="reference-logo">
+                    <img src="images/logos/hse-getraenkewelt.png" alt="HSE Getränkewelt Essen Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">HSE Getränkewelt Essen</span>
+                </div>
+            </div>
+
+            <div class="reference-card">
+                <div class="reference-logo">
+                    <img src="images/logos/kurt-pietsch.png" alt="Kurt Pietsch GmbH Group Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">Kurt Pietsch GmbH Group</span>
+                </div>
+            </div>
+
+            <div class="reference-card">
+                <div class="reference-logo">
+                    <img src="images/logos/olympia-gruppe.png" alt="Olympia Gruppe Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">Olympia Gruppe</span>
+                </div>
+            </div>
+
+            <div class="reference-card">
+                <div class="reference-logo">
+                    <img src="images/logos/larrivee.png" alt="L'Arrivée Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">L'Arrivée</span>
+                </div>
+            </div>
+
+            <div class="reference-card">
+                <div class="reference-logo">
+                    <img src="images/logos/future-x.png" alt="FUTURE-X Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">FUTURE-X</span>
+                </div>
+            </div>
+
+            <div class="reference-card">
+                <div class="reference-logo">
+                    <img src="images/logos/versatel.png" alt="versatel Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">versatel</span>
+                </div>
+            </div>
+
+            <div class="reference-card">
+                <div class="reference-logo">
+                    <img src="images/logos/mcfit.png" alt="McFIT Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">McFIT</span>
+                </div>
+            </div>
+
+            <div class="reference-card">
+                <div class="reference-logo">
+                    <img src="images/logos/dortmund.png" alt="Dortmund Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">Dortmund</span>
+                </div>
+            </div>
+
+            <div class="reference-card">
+                <div class="reference-logo">
+                    <img src="images/logos/carlos.png" alt="Carlos Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <span class="logo-fallback">Carlos</span>
+                </div>
             </div>
         </div>
     </section>
