@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Build outputs
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Keep design iterations folder structure but ignore specific files if needed
+# .superdesign/design_iterations/*.html
