@@ -1,0 +1,12 @@
+{
+	"designSystem": "custom",
+	"performanceBudgets": {
+		"LCP_ms": 2500,
+		"INP_ms": 200,
+		"CLS": 0.1,
+		"heroImageMaxKB": 200,
+		"imageMaxKB": 100
+	},
+	"contrastMin": "AA",
+	"notes": "Override per project as needed. designSystem options: material | govuk | bbc | custom"
+}
