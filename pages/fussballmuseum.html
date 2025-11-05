@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Maßgeschneiderte Sicherheitstechnik für das Deutsche Fußballmuseum. Laserscanner-Technologie für maximale Sicherheit ohne Barrieren.">
+    <meta name="keywords" content="Deutsches Fußballmuseum, Museum Sicherheit, Laserscanner, Zutrittskontrolle, Videoüberwachung, Dortmund, KOST">
+    <meta property="og:title" content="Deutsches Fußballmuseum - KOST Sicherheitstechnik">
+    <meta property="og:description" content="Maßgeschneiderte Sicherheitstechnik für das Deutsche Fußballmuseum">
+    <meta property="og:type" content="website">
+    <title>Deutsches Fußballmuseum - KOST Sicherheitstechnik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="../css/theme.css">
+    <style>
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 9998;
+            padding: 6rem 2rem 2rem;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu-link {
+            display: block;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--foreground, #1d1d1f);
+            text-decoration: none;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: color 0.2s ease;
+        }
+
+        .mobile-menu-link:hover {
+            color: var(--kost-red, #FA0016);
+        }
+
+        .mobile-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-dropdown.active {
+            max-height: 500px;
+        }
+
+        .mobile-dropdown-link {
+            display: block;
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--muted-foreground, #86868b);
+            text-decoration: none;
+            padding: 1rem 0 1rem 2rem;
+            transition: color 0.2s ease;
+        }
+
+        .mobile-dropdown-link:hover {
+            color: var(--kost-red, #FA0016);
+        }
+
+        .mobile-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .mobile-dropdown-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-toggle.active i {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 640px) {
+            .display-xl {
+                font-size: 2.5rem !important;
+                line-height: 1.1 !important;
+                word-break: break-word;
+            }
+
+            .display-md {
+                font-size: 1.875rem !important;
+                line-height: 1.2 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" style="position:fixed;inset:auto 0 0 0;background:rgba(255,255,255,.98);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-top:1px solid var(--border,#e5e5e7);z-index:99999;display:none;box-shadow:0 -4px 6px rgba(0,0,0,0.05);">
+        <div class="container" style="padding:1.5rem var(--spacing-lg);display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+            <div class="body-md" style="color:var(--foreground,#1d1d1f);flex:1;min-width:280px;">Wir verwenden Cookies/Skripte. Nicht notwendige Skripte laden wir erst nach Ihrer Zustimmung.</div>
+            <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+                <button class="btn-apple btn-secondary" onclick="__revokeConsent()" style="padding:.6rem 1.25rem;font-size:.9rem;">Einstellungen zurücksetzen</button>
+                <button class="btn-apple btn-primary" onclick="__grantConsent()" style="padding:.6rem 1.5rem;font-size:.9rem;">OK</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){
+            const CONSENT_KEY = 'kost_consent_session';
+            function hasConsent(){ try { return sessionStorage.getItem(CONSENT_KEY) === 'true'; } catch(e){ return false; } }
+            function setConsent(accepted){ try { sessionStorage.setItem(CONSENT_KEY, accepted ? 'true' : 'false'); } catch(e){} }
+            window.__grantConsent = function(){ setConsent(true); document.getElementById('cookieBanner').style.display='none'; };
+            window.__revokeConsent = function(){ setConsent(false); document.getElementById('cookieBanner').style.display='none'; };
+            if(!hasConsent()){ document.getElementById('cookieBanner').style.display='block'; }
+        })();
+    </script>
+
+    <!-- NAVIGATION -->
+    <nav class="nav-apple" id="mainNav">
+        <div class="container">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-xl font-semibold" style="color: var(--foreground, #1d1d1f); text-decoration: none;" aria-label="KOST Sicherheitstechnik Homepage">
+                    <img src="https://github.com/maexftw/kost/blob/main/images/Kost-Logo-seit-1995.png?raw=true" alt="KOST Sicherheitstechnik Logo" style="height: 44px; width: auto; display: block;">
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="../index.html" class="nav-link-apple">Startseite</a>
+                    <div class="relative group">
+                        <a href="../index.html#services" class="nav-link-apple flex items-center gap-1">
+                            Leistungen
+                            <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+                        </a>
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300" style="border: 1px solid rgba(0,0,0,0.08);">
+                            <a href="videoueberwachung.html" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none;">Videoüberwachung</a>
+                            <a href="alarmanlagen.html" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none;">Alarmanlagen</a>
+                            <a href="zutrittskontrolle.html" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none;">Zutrittskontrolle</a>
+                            <a href="briefkasten.html" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none;">Briefkastenanlagen</a>
+                            <a href="mechanische-sicherung.html" class="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors" style="color: var(--foreground, #1d1d1f); text-decoration: none; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">Mechanische Sicherung</a>
+                        </div>
+                    </div>
+                    <a href="../index.html#about" class="nav-link-apple">Über uns</a>
+                    <a href="../index.html#process" class="nav-link-apple">Ablauf</a>
+                    <a href="../index.html#references" class="nav-link-apple">Referenzen</a>
+                    <a href="../index.html#museum" class="nav-link-apple">Fußballmuseum</a>
+                    <a href="../index.html#sicherheitscheck" class="nav-link-apple">Sicherheitscheck</a>
+                    <a href="../index.html#contact" class="nav-link-apple">Kontakt</a>
+                </div>
+
+                <button class="md:hidden" id="mobileToggle" aria-label="Navigation öffnen" aria-expanded="false" style="background: none; border: none; cursor: pointer;">
+                    <i data-lucide="menu" style="width: 24px; height: 24px; color: var(--foreground, #1d1d1f);"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button id="mobileClose" aria-label="Navigation schließen" style="position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; cursor: pointer;">
+            <i data-lucide="x" style="width: 32px; height: 32px; color: var(--foreground, #1d1d1f);"></i>
+        </button>
+        <nav>
+            <a href="../index.html" class="mobile-menu-link">Startseite</a>
+            <div>
+                <div class="mobile-menu-link mobile-dropdown-toggle" id="mobileDropdownToggle">
+                    <span>Leistungen</span>
+                    <i data-lucide="chevron-down" style="width: 24px; height: 24px;"></i>
+                </div>
+                <div class="mobile-dropdown" id="mobileDropdown">
+                    <a href="videoueberwachung.html" class="mobile-dropdown-link">Videoüberwachung</a>
+                    <a href="alarmanlagen.html" class="mobile-dropdown-link">Alarmanlagen</a>
+                    <a href="zutrittskontrolle.html" class="mobile-dropdown-link">Zutrittskontrolle</a>
+                    <a href="briefkasten.html" class="mobile-dropdown-link">Briefkastenanlagen</a>
+                    <a href="mechanische-sicherung.html" class="mobile-dropdown-link">Mechanische Sicherung</a>
+                </div>
+            </div>
+            <a href="../index.html#about" class="mobile-menu-link">Über uns</a>
+            <a href="../index.html#process" class="mobile-menu-link">Ablauf</a>
+            <a href="../index.html#references" class="mobile-menu-link">Referenzen</a>
+            <a href="../index.html#museum" class="mobile-menu-link">Fußballmuseum</a>
+            <a href="../index.html#sicherheitscheck" class="mobile-menu-link">Sicherheitscheck</a>
+            <a href="../index.html#contact" class="mobile-menu-link">Kontakt</a>
+        </nav>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="section-apple" style="padding-top: 6rem; padding-bottom: 4rem; background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);">
+        <div class="container">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="hero-eyebrow mb-md">Referenzprojekt</div>
+                <h1 class="display-xl mb-lg">Maßgeschneiderte Sicherheitstechnik für das Deutsche Fußballmuseum</h1>
+                <p class="body-lg" style="max-width: 680px; margin-left: auto; margin-right: auto;">
+                    Für das Deutsche Fußballmuseum war höchste Sicherheit bei gleichzeitiger Wahrung des Besuchererlebnisses entscheidend. Mit modernsten Laserscannern und Zutrittskontrollen hat Kost Sicherheitstechnik ein Konzept entwickelt, das die Exponate schützt, ohne Barrieren zu schaffen.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="section-apple">
+        <div class="max-w-4xl mx-auto text-center scroll-reveal">
+            <h2 class="display-md mb-lg">Schutz vor Diebstahl & Vandalismus</h2>
+            <p class="body-md mb-xl">
+                Unser Team kombiniert bewährte und innovative Technologien, um Exponate, Besucher und Personal zuverlässig zu schützen.
+            </p>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="section-apple" style="background: var(--muted, #f5f5f7);">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card-apple scroll-reveal">
+                    <div class="card-icon">
+                        <i data-lucide="scan-line" style="width: 28px; height: 28px; color: white;"></i>
+                    </div>
+                    <h3 class="card-title">Laserscanner-Technologie</h3>
+                    <p class="card-text">
+                        Präzise Sicherung jedes einzelnen Exponats – Besucher können sich bis auf <strong>2 cm</strong> nähern, ohne Alarm auszulösen.
+                    </p>
+                </div>
+
+                <div class="card-apple scroll-reveal" style="transition-delay: 0.1s;">
+                    <div class="card-icon">
+                        <i data-lucide="key" style="width: 28px; height: 28px; color: white;"></i>
+                    </div>
+                    <h3 class="card-title">Zutrittskontrolle</h3>
+                    <p class="card-text">
+                        Nur autorisierte Personen gelangen in sensible Bereiche. Moderne elektronische Schließsysteme gewährleisten höchste Sicherheit.
+                    </p>
+                </div>
+
+                <div class="card-apple scroll-reveal" style="transition-delay: 0.2s;">
+                    <div class="card-icon">
+                        <i data-lucide="video" style="width: 28px; height: 28px; color: white;"></i>
+                    </div>
+                    <h3 class="card-title">Videoüberwachung</h3>
+                    <p class="card-text">
+                        Hochauflösende Kameras mit lückenloser Aufzeichnung für vollständige Transparenz und Sicherheit.
+                    </p>
+                </div>
+
+                <div class="card-apple scroll-reveal" style="transition-delay: 0.3s;">
+                    <div class="card-icon">
+                        <i data-lucide="shield-alert" style="width: 28px; height: 28px; color: white;"></i>
+                    </div>
+                    <h3 class="card-title">Brand- und Einbruchmeldetechnik</h3>
+                    <p class="card-text">
+                        Frühzeitige Erkennung von Gefahren durch hochmoderne Sensoren und Meldesysteme.
+                    </p>
+                </div>
+
+                <div class="card-apple scroll-reveal" style="transition-delay: 0.4s;">
+                    <div class="card-icon">
+                        <i data-lucide="network" style="width: 28px; height: 28px; color: white;"></i>
+                    </div>
+                    <h3 class="card-title">Vernetzte Systeme</h3>
+                    <p class="card-text">
+                        Alle Sicherheitskomponenten arbeiten nahtlos zusammen für einen optimalen Rundumschutz.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-2xl scroll-reveal">
+                <p class="body-lg" style="font-weight: 500;">
+                    Dank dieser maßgeschneiderten Lösungen bleibt die Ausstellung <strong>offen erlebbar</strong> – bei gleichzeitig maximalem Schutz.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="section-apple">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-2xl scroll-reveal">
+                <h2 class="display-md mb-lg">Erfolgreiche Sicherheitslösungen in Museen</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-apple text-center scroll-reveal">
+                    <div class="stat-number" style="font-size: 3.5rem; font-weight: 700; color: var(--kost-red); margin-bottom: 1rem;">70%</div>
+                    <p class="body-md">
+                        der Museen in Deutschland haben in den letzten Jahren ihre Sicherheitskonzepte modernisiert, um Diebstahl und Vandalismus vorzubeugen.
+                    </p>
+                </div>
+
+                <div class="card-apple text-center scroll-reveal" style="transition-delay: 0.2s;">
+                    <div class="stat-number" style="font-size: 3.5rem; font-weight: 700; color: var(--kost-red); margin-bottom: 1rem;">85%</div>
+                    <p class="body-md">
+                        weniger Schäden verzeichnen Museen, die in moderne Videoüberwachung und Zutrittskontrollen investieren.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="section-apple" style="background: var(--muted, #f5f5f7);">
+        <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-apple scroll-reveal">
+                    <div style="display: flex; align-items: start; gap: 1rem;">
+                        <div style="width: 4px; height: 100%; background: var(--kost-red); border-radius: 2px; flex-shrink: 0;"></div>
+                        <div>
+                            <p class="body-md" style="font-style: italic; margin-bottom: 1rem; color: var(--muted-foreground);">
+                                „Die Sicherheitstechnik im Deutschen Fußballmuseum ist perfekt auf unsere Bedürfnisse abgestimmt – sowohl im täglichen Betrieb als auch bei Sonderveranstaltungen."
+                            </p>
+                            <div class="caption" style="font-weight: 600; color: var(--foreground);">
+                                Max Müller<br>
+                                <span style="font-weight: 400; color: var(--muted-foreground);">Kurator, Fußballmuseum</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-apple scroll-reveal" style="transition-delay: 0.2s;">
+                    <div style="display: flex; align-items: start; gap: 1rem;">
+                        <div style="width: 4px; height: 100%; background: var(--kost-red); border-radius: 2px; flex-shrink: 0;"></div>
+                        <div>
+                            <p class="body-md" style="font-style: italic; margin-bottom: 1rem; color: var(--muted-foreground);">
+                                „Die Zusammenarbeit mit Kost Sicherheitstechnik war ein großer Gewinn für unsere Ausstellung."
+                            </p>
+                            <div class="caption" style="font-weight: 600; color: var(--foreground);">
+                                Anna Schmidt<br>
+                                <span style="font-weight: 400; color: var(--muted-foreground);">Leiterin, Ausstellungshaus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section-apple">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="scroll-reveal">
+                <h2 class="display-md mb-lg">Sichern Sie Ihr Gebäude jetzt</h2>
+                <p class="body-lg mb-2xl">
+                    Kontaktieren Sie uns für eine individuelle Beratung und einen kostenlosen Sicherheitscheck.
+                </p>
+                <a href="../index.html#contact" class="btn-apple btn-primary">
+                    Jetzt Beratung anfragen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-apple">
+        <div class="container">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="headline mb-md">KOST Sicherheitstechnik</h3>
+                    <p class="body-md" style="color: var(--muted-foreground);">
+                        Seit 1995 Ihr zuverlässiger Partner für professionelle Sicherheitslösungen in Dortmund und Umgebung.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="headline mb-md">Kontakt</h4>
+                    <p class="body-md" style="color: var(--muted-foreground);">
+                        Hörder Phoenixseeallee 162a<br>
+                        44263 Dortmund<br><br>
+                        Telefon: <a href="tel:+4923198983351" style="color: var(--kost-red); text-decoration: none;">+49 231 / 98 98 351</a><br>
+                        E-Mail: <a href="mailto:info@kost-sicherheitstechnik.de" style="color: var(--kost-red); text-decoration: none;">info@kost-sicherheitstechnik.de</a>
+                    </p>
+                </div>
+                <div>
+                    <h4 class="headline mb-md">Rechtliches</h4>
+                    <a href="datenschutz.html" class="body-md" style="color: var(--muted-foreground); text-decoration: none; display: block; margin-bottom: 0.5rem;">Datenschutz</a>
+                    <a href="impressum.html" class="body-md" style="color: var(--muted-foreground); text-decoration: none; display: block;">Impressum</a>
+                </div>
+            </div>
+            <div style="border-top: 1px solid var(--border); padding-top: 2rem; text-align: center;">
+                <p class="caption" style="color: var(--muted-foreground);">
+                    © 2025 KOST Sicherheitstechnik. Alle Rechte vorbehalten.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+        const mobileDropdownToggle = document.getElementById('mobileDropdownToggle');
+        const mobileDropdown = document.getElementById('mobileDropdown');
+
+        mobileToggle?.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            mobileToggle.setAttribute('aria-expanded', 'true');
+        });
+
+        mobileClose?.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+        });
+
+        mobileDropdownToggle?.addEventListener('click', () => {
+            mobileDropdownToggle.classList.toggle('active');
+            mobileDropdown.classList.toggle('active');
+        });
+
+        // Scroll Reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Initialize Lucide Icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
+
