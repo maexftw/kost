@@ -312,6 +312,20 @@ project/
 **Problem: Theme/Tokens unvollständig**
 → Lösung: Tokens in `.superdesign/theme_1.css` ergänzen
 
+**Problem: GitHub Pages wird nicht aktualisiert / Push schlägt fehl**
+→ **Symptom:** `error: failed to push some refs` oder `refusing to allow a Personal Access Token... without 'workflow' scope`
+→ **Ursache:** Alte GitHub Token-Credentials im Windows Credential Manager oder fehlende Berechtigungen
+→ **Lösung:**
+  1. GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
+  2. Neues Token erstellen mit Scopes: `repo` (alle) und optional `workflow` (nur wenn GitHub Actions benötigt)
+  3. Alte Credentials löschen:
+     ```powershell
+     cmdkey /delete:"LegacyGeneric:target=git:https://github.com"
+     # Oder: .git-credentials Datei bearbeiten: $env:USERPROFILE\.git-credentials
+     ```
+  4. Erneut pushen - Git fragt nach neuem Token
+→ **Hinweis:** Für statische HTML-Seiten reicht "Deploy from a branch" - GitHub Actions Workflow ist nicht nötig!
+
 **Problem: Git Push failed**
 → Lösung: `git remote -v` prüfen, GitHub Repo erstellen
 
