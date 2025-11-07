@@ -154,9 +154,20 @@ Diese E-Mail wurde über das Kontaktformular auf kost-sicherheitstechnik.de gese
 
     if (!emailResponse.ok) {
       const errorData = await emailResponse.text();
-      console.error('Resend API Error:', errorData);
+      console.error('Resend API Error:', emailResponse.status, errorData);
+      // Detaillierte Fehlerinformationen für Debugging
+      let errorMessage = 'E-Mail konnte nicht gesendet werden';
+      try {
+        const errorJson = JSON.parse(errorData);
+        if (errorJson.message) {
+          errorMessage = `Resend Fehler: ${errorJson.message}`;
+        }
+      } catch (e) {
+        // Falls kein JSON, verwende Text
+        errorMessage = `Resend Fehler: ${errorData}`;
+      }
       return new Response(
-        JSON.stringify({ error: 'E-Mail konnte nicht gesendet werden' }),
+        JSON.stringify({ error: errorMessage }),
         {
           status: 500,
           headers: { ...corsHeaders, 'Content-Type': 'application/json' },
