@@ -2,7 +2,9 @@
 
 ## Schritt-für-Schritt (2 Minuten)
 
-**⚠️ WICHTIG:** Dein Resend API Key steht in der Datei `SETUP-NOW-LOCAL.md` (nicht in Git).
+**⚠️ WICHTIG:** 
+- Verwende **"Secret"** (nicht "Text") für den API Key in Cloudflare!
+- Der API Key sollte NIEMALS in Git committed werden.
 
 ### 1. Cloudflare Dashboard öffnen
 - Gehe zu: **https://dash.cloudflare.com**
@@ -33,11 +35,11 @@ RESEND_API_KEY
 ```
 ⚠️ Genau so, mit Großbuchstaben!
 
+**Type:**
+- Wähle: **"Secret"** (NICHT "Text"!) ⚠️
+
 **Value:**
-```
-re_AxkKzfpw_4KVbFpQJhpRb8f8cFGBx6XvS
-```
-Füge den kompletten Key ein.
+- Füge deinen Resend API Key ein (aus Resend Dashboard kopiert)
 
 **Environment:**
 - Wähle: **"Production"** ✓
@@ -64,5 +66,10 @@ Nach dem Build (1-2 Minuten) sollte das Kontaktformular funktionieren.
 
 ---
 
-**⚠️ WICHTIG:** Dieser API Key ist jetzt in dieser Datei. Nach dem Setup solltest du diese Datei löschen oder den Key entfernen (Sicherheit).
+## 🔒 Sicherheitshinweis
+
+**WICHTIG:** 
+- API Keys sollten **NIEMALS** in Git committed werden
+- Verwende immer **"Secret"** (nicht "Text") in Cloudflare für API Keys
+- Falls ein Key versehentlich committed wurde: Key im Resend Dashboard rotieren (löschen und neu erstellen)
 
