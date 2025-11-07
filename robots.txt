@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://www.kost-sicherheitstechnik.de/sitemap.xml
+

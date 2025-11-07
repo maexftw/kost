@@ -94,7 +94,7 @@ cd kost
 ## 📞 Kontakt
 
 **KOST Sicherheitstechnik**
-Hermannstr. 162a
+Hörder Phoenixseeallee 162a
 44263 Dortmund
 
 📞 Tel: 0231 / 98 98 351
