@@ -507,6 +507,15 @@
         }
         
         @media (max-width: 480px) {
+          .section-apple {
+            padding: var(--spacing-xl) 0.75rem;
+          }
+          
+          .max-w-4xl {
+            padding-left: 0.75rem !important;
+            padding-right: 0.75rem !important;
+          }
+          
           .split-apple {
             padding: var(--spacing-xl) var(--spacing-sm);
             gap: var(--spacing-lg);
@@ -1148,27 +1157,27 @@
             </p>
         </div>
 
-        <div class="max-w-4xl mx-auto" style="padding: 0 1rem;">
-            <div class="card-apple scroll-reveal">
-                <div style="display: grid; gap: 1.5rem; min-width: 0;">
-                    <div>
+        <div class="max-w-4xl mx-auto" style="padding: 0 1rem; box-sizing: border-box;">
+            <div class="card-apple scroll-reveal" style="width: 100%; max-width: 100%; box-sizing: border-box;">
+                <div style="display: grid; gap: 1.5rem; min-width: 0; width: 100%; box-sizing: border-box;">
+                    <div style="min-width: 0; width: 100%; box-sizing: border-box;">
                         <h3 class="headline mb-md">Was Sie erwartet:</h3>
-                        <ul style="list-style: none; padding: 0; display: grid; gap: 1rem;">
-                            <li style="display: flex; align-items: start; gap: 0.75rem; min-width: 0;">
+                        <ul style="list-style: none; padding: 0; display: grid; gap: 1rem; margin: 0; width: 100%; box-sizing: border-box;">
+                            <li style="display: flex; align-items: start; gap: 0.75rem; min-width: 0; width: 100%; box-sizing: border-box;">
                                 <i data-lucide="check-circle" style="width: 24px; height: 24px; color: var(--kost-red); flex-shrink: 0; margin-top: 2px;"></i>
-                                <span class="body-md" style="min-width: 0; word-wrap: break-word;">Kostenlose Vor-Ort-Begehung durch unseren Experten</span>
+                                <span class="body-md" style="min-width: 0; word-wrap: break-word; overflow-wrap: break-word; flex: 1;">Kostenlose Vor-Ort-Begehung durch unseren Experten</span>
                             </li>
-                            <li style="display: flex; align-items: start; gap: 0.75rem; min-width: 0;">
+                            <li style="display: flex; align-items: start; gap: 0.75rem; min-width: 0; width: 100%; box-sizing: border-box;">
                                 <i data-lucide="check-circle" style="width: 24px; height: 24px; color: var(--kost-red); flex-shrink: 0; margin-top: 2px;"></i>
-                                <span class="body-md" style="min-width: 0; word-wrap: break-word;">Detaillierte Schwachstellenanalyse Ihres Objekts</span>
+                                <span class="body-md" style="min-width: 0; word-wrap: break-word; overflow-wrap: break-word; flex: 1;">Detaillierte Schwachstellenanalyse Ihres Objekts</span>
                             </li>
-                            <li style="display: flex; align-items: start; gap: 0.75rem; min-width: 0;">
+                            <li style="display: flex; align-items: start; gap: 0.75rem; min-width: 0; width: 100%; box-sizing: border-box;">
                                 <i data-lucide="check-circle" style="width: 24px; height: 24px; color: var(--kost-red); flex-shrink: 0; margin-top: 2px;"></i>
-                                <span class="body-md" style="min-width: 0; word-wrap: break-word;">Konkrete Handlungsempfehlungen für mehr Sicherheit</span>
+                                <span class="body-md" style="min-width: 0; word-wrap: break-word; overflow-wrap: break-word; flex: 1;">Konkrete Handlungsempfehlungen für mehr Sicherheit</span>
                             </li>
-                            <li style="display: flex; align-items: start; gap: 0.75rem; min-width: 0;">
+                            <li style="display: flex; align-items: start; gap: 0.75rem; min-width: 0; width: 100%; box-sizing: border-box;">
                                 <i data-lucide="check-circle" style="width: 24px; height: 24px; color: var(--kost-red); flex-shrink: 0; margin-top: 2px;"></i>
-                                <span class="body-md" style="min-width: 0; word-wrap: break-word;">Unverbindliches Gespräch ohne Verkaufsdruck</span>
+                                <span class="body-md" style="min-width: 0; word-wrap: break-word; overflow-wrap: break-word; flex: 1;">Unverbindliches Gespräch ohne Verkaufsdruck</span>
                             </li>
                         </ul>
                     </div>
