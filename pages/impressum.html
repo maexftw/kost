@@ -19,9 +19,9 @@
     </div>
     <script>
         (function(){
-            const CONSENT_KEY = 'kost_consent_session';
-            function hasConsent(){ try { return sessionStorage.getItem(CONSENT_KEY) === 'true'; } catch(e){ return false; } }
-            function setConsent(accepted){ try { sessionStorage.setItem(CONSENT_KEY, accepted ? 'true' : 'false'); } catch(e){} }
+            const CONSENT_KEY = 'kost_consent';
+            function hasConsent(){ try { return localStorage.getItem(CONSENT_KEY) === 'true'; } catch(e){ return false; } }
+            function setConsent(accepted){ try { localStorage.setItem(CONSENT_KEY, accepted ? 'true' : 'false'); } catch(e){} }
             window.__grantConsent = function(){ setConsent(true); document.getElementById('cookieBanner').style.display='none'; };
             window.__revokeConsent = function(){ setConsent(false); document.getElementById('cookieBanner').style.display='none'; };
             if(!hasConsent()){ document.getElementById('cookieBanner').style.display='block'; }
@@ -37,8 +37,6 @@
                 <p><strong>Telefon:</strong> +49 231 / 98 98 351</p>
                 <p><strong>E-Mail:</strong> info@kost-sicherheitstechnik.de</p>
                 <p><strong>Vertretungsberechtigt:</strong> Torsten Kost</p>
-                <p><strong>USt-IdNr.:</strong> wird nachgetragen</p>
-                <p><strong>Aufsichtsbehörde:</strong> wird nachgetragen</p>
                 <h2 class="headline mt-lg mb-sm">Haftung für Inhalte</h2>
                 <p>Die Inhalte dieser Seite wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine Gewähr.</p>
                 <h2 class="headline mt-lg mb-sm">Haftung für Links</h2>

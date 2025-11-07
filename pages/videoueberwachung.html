@@ -133,9 +133,9 @@
     </div>
     <script>
         (function(){
-            const CONSENT_KEY = 'kost_consent_session';
-            function hasConsent(){ try { return sessionStorage.getItem(CONSENT_KEY) === 'true'; } catch(e){ return false; } }
-            function setConsent(accepted){ try { sessionStorage.setItem(CONSENT_KEY, accepted ? 'true' : 'false'); } catch(e){} }
+            const CONSENT_KEY = 'kost_consent';
+            function hasConsent(){ try { return localStorage.getItem(CONSENT_KEY) === 'true'; } catch(e){ return false; } }
+            function setConsent(accepted){ try { localStorage.setItem(CONSENT_KEY, accepted ? 'true' : 'false'); } catch(e){} }
             window.__grantConsent = function(){ setConsent(true); document.getElementById('cookieBanner').style.display='none'; };
             window.__revokeConsent = function(){ setConsent(false); document.getElementById('cookieBanner').style.display='none'; };
             if(!hasConsent()){ document.getElementById('cookieBanner').style.display='block'; }

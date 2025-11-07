@@ -1,0 +1,13 @@
+$ORIGIN kost-sicherheitstechnik.de.
+$TTL 3600
+
+@ IN A 185.175.196.28
+@ IN AAAA 2a00:1c98:60:1040:0:1:39f6:b627
+@ IN MX 0 kostsicherheitstechnik-de01b.mail.protection.outlook.com.
+@ IN TXT "MS=ms99259650"
+@ IN TXT "v=spf1 include:spf.protection.outlook.com mx a -all"
+* IN A 185.175.196.28
+_webflow IN TXT "one-time-verification=628b5d57-d69e-4e71-9384-b08102a50e49"
+autodiscover IN CNAME autodiscover.outlook.com.
+kas202508221135._domainkey IN TXT "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuieW7oxkjto1ATvJGJ2cqmMipnhMuxMG8MKTMGkqU4tgXrlR63PyNjnXChzm++nqdt0NHoplpmUaOFhfBRQGyHDuQukwObX/3fICtOWsuk1aucgvZw7agZXLjhoqlYzQb2Ni3xHO4dKkP5vBSMd8SbsU/4OgoRxbxmofZbobRBJtkOC9yQs866OqloxxPgVp1E+6oQ2eSKxyxP+Kua5RpH7DNtp8XBxczc+JzOA1HaqArFkCn1no8NSb+HnjGyr2ripFUo3pheQnCGrgEqOCgMsBSh54n7sW5/qQdi0avG8kPG+4SNJPZinLSz6exbwqs+wEhdPh3AD30SBE9fBKcQIDAQAB"
+www IN CNAME proxy-ssl.webflow.com.
