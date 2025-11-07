@@ -84,6 +84,16 @@
           color: var(--foreground) !important;
           line-height: 1.6 !important;
           overflow-x: hidden;
+          max-width: 100vw;
+        }
+        
+        * {
+          max-width: 100%;
+        }
+        
+        img, video, iframe {
+          max-width: 100%;
+          height: auto;
         }
 
         /* TYPOGRAPHY - Apple Style */
@@ -274,6 +284,18 @@
           border: 1px solid rgba(0, 0, 0, 0.04);
           height: 100%;
         }
+        
+        @media (max-width: 768px) {
+          .card-apple {
+            padding: var(--spacing-lg);
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .card-apple {
+            padding: 1.25rem;
+          }
+        }
 
         .card-apple:hover {
           box-shadow: var(--shadow-xl);
@@ -309,6 +331,18 @@
           padding: var(--spacing-4xl) var(--spacing-lg);
           max-width: 1440px;
           margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+          .section-apple {
+            padding: var(--spacing-2xl) var(--spacing-sm);
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .section-apple {
+            padding: var(--spacing-xl) 1rem;
+          }
         }
 
         .section-header {
@@ -443,10 +477,6 @@
           .btn-apple {
             width: 100%;
           }
-
-          .section-apple {
-            padding: var(--spacing-2xl) var(--spacing-md);
-          }
           
           .split-apple {
             padding: var(--spacing-2xl) var(--spacing-md);
@@ -477,10 +507,6 @@
         }
         
         @media (max-width: 480px) {
-          .section-apple {
-            padding: var(--spacing-xl) var(--spacing-sm);
-          }
-          
           .split-apple {
             padding: var(--spacing-xl) var(--spacing-sm);
             gap: var(--spacing-lg);
@@ -1122,27 +1148,27 @@
             </p>
         </div>
 
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-4xl mx-auto" style="padding: 0 1rem;">
             <div class="card-apple scroll-reveal">
-                <div style="display: grid; gap: 1.5rem;">
+                <div style="display: grid; gap: 1.5rem; min-width: 0;">
                     <div>
                         <h3 class="headline mb-md">Was Sie erwartet:</h3>
                         <ul style="list-style: none; padding: 0; display: grid; gap: 1rem;">
-                            <li style="display: flex; align-items: start; gap: 0.75rem;">
+                            <li style="display: flex; align-items: start; gap: 0.75rem; min-width: 0;">
                                 <i data-lucide="check-circle" style="width: 24px; height: 24px; color: var(--kost-red); flex-shrink: 0; margin-top: 2px;"></i>
-                                <span class="body-md">Kostenlose Vor-Ort-Begehung durch unseren Experten</span>
+                                <span class="body-md" style="min-width: 0; word-wrap: break-word;">Kostenlose Vor-Ort-Begehung durch unseren Experten</span>
                             </li>
-                            <li style="display: flex; align-items: start; gap: 0.75rem;">
+                            <li style="display: flex; align-items: start; gap: 0.75rem; min-width: 0;">
                                 <i data-lucide="check-circle" style="width: 24px; height: 24px; color: var(--kost-red); flex-shrink: 0; margin-top: 2px;"></i>
-                                <span class="body-md">Detaillierte Schwachstellenanalyse Ihres Objekts</span>
+                                <span class="body-md" style="min-width: 0; word-wrap: break-word;">Detaillierte Schwachstellenanalyse Ihres Objekts</span>
                             </li>
-                            <li style="display: flex; align-items: start; gap: 0.75rem;">
+                            <li style="display: flex; align-items: start; gap: 0.75rem; min-width: 0;">
                                 <i data-lucide="check-circle" style="width: 24px; height: 24px; color: var(--kost-red); flex-shrink: 0; margin-top: 2px;"></i>
-                                <span class="body-md">Konkrete Handlungsempfehlungen für mehr Sicherheit</span>
+                                <span class="body-md" style="min-width: 0; word-wrap: break-word;">Konkrete Handlungsempfehlungen für mehr Sicherheit</span>
                             </li>
-                            <li style="display: flex; align-items: start; gap: 0.75rem;">
+                            <li style="display: flex; align-items: start; gap: 0.75rem; min-width: 0;">
                                 <i data-lucide="check-circle" style="width: 24px; height: 24px; color: var(--kost-red); flex-shrink: 0; margin-top: 2px;"></i>
-                                <span class="body-md">Unverbindliches Gespräch ohne Verkaufsdruck</span>
+                                <span class="body-md" style="min-width: 0; word-wrap: break-word;">Unverbindliches Gespräch ohne Verkaufsdruck</span>
                             </li>
                         </ul>
                     </div>
