@@ -1392,11 +1392,7 @@
             <!-- Kontaktformular (Formspree) -->
             <div class="card-apple scroll-reveal" role="form" aria-labelledby="contactFormTitle">
                 <h3 id="contactFormTitle" class="headline mb-md">Kontaktformular</h3>
-                <form id="contactForm" action="https://formspree.io/f/FORM_ID" method="POST" novalidate>
-                    <input type="text" name="_subject" value="Neue Anfrage über Website" hidden>
-                    <div style="display:none;">
-                        <label>Bitte nicht ausfüllen: <input name="_gotcha" tabindex="-1"></label>
-                    </div>
+                <form id="contactForm" action="/api/contact" method="POST" novalidate>
                     <div style="display:grid;gap:12px;">
                         <label style="display:grid;gap:6px;">
                             <span class="caption">Name*</span>
@@ -1464,16 +1460,40 @@
                 form.addEventListener('submit', async (e)=>{
                     if(!form.reportValidity()) return;
                     e.preventDefault();
-                    state.textContent = 'Sende…';
+                    
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    const originalButtonText = submitButton.textContent;
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Sende…';
+                    state.textContent = '';
+                    state.style.color = 'var(--muted-foreground)';
+                    
                     try{
-                        const res = await fetch(form.action, { method:'POST', body: new FormData(form), headers: { 'Accept':'application/json' }});
-                        if (res.ok){
-                            state.textContent = 'Danke! Wir melden uns kurzfristig.';
+                        const formData = new FormData(form);
+                        const res = await fetch(form.action, { 
+                            method:'POST', 
+                            body: formData,
+                            headers: { 'Accept':'application/json' }
+                        });
+                        
+                        const data = await res.json();
+                        
+                        if (res.ok && data.success){
+                            state.textContent = data.message || 'Danke! Wir melden uns kurzfristig.';
+                            state.style.color = 'var(--kost-red)';
                             form.reset();
                         } else {
-                            state.textContent = 'Senden fehlgeschlagen. Bitte später erneut versuchen.';
+                            state.textContent = data.error || 'Senden fehlgeschlagen. Bitte später erneut versuchen.';
+                            state.style.color = 'var(--destructive)';
                         }
-                    }catch(err){ state.textContent = 'Netzwerkfehler. Bitte später erneut versuchen.'; }
+                    }catch(err){ 
+                        console.error('Form error:', err);
+                        state.textContent = 'Netzwerkfehler. Bitte später erneut versuchen.';
+                        state.style.color = 'var(--destructive)';
+                    } finally {
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalButtonText;
+                    }
                 });
             })();
         </script>
