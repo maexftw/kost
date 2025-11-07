@@ -86,7 +86,7 @@ export async function onRequestPost(context) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Website Kontaktformular <noreply@kost-sicherheitstechnik.de>',
+        from: 'Website Kontaktformular <noreply@mail.kost-sicherheitstechnik.de>',
         to: contactEmails,
         replyTo: email,
         subject: `Neue Anfrage von ${name} - KOST Sicherheitstechnik`,
