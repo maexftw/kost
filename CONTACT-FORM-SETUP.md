@@ -21,6 +21,27 @@ Das Kontaktformular verwendet Cloudflare Pages Functions und Resend API, um E-Ma
    - **Variable name:** `RESEND_API_KEY`
    - **Value:** Dein Resend API Key
    - **Environment:** Production (und Preview, falls gewünscht)
+   - **Type:** Secret
+
+### 3b. Cloudflare Turnstile Setup (Spam-Schutz)
+1. Gehe zu Cloudflare Dashboard → Turnstile
+2. Erstelle einen neuen Widget:
+   - **Widget name:** Kost Kontaktformular (oder wie gewünscht)
+   - **Domain:** kost-sicherheitstechnik.de
+   - **Mode:** Managed (empfohlen für beste UX)
+3. Kopiere **Site Key** und **Secret Key**
+4. In Cloudflare Pages → Settings → Environment variables:
+   - **Variable name:** `TURNSTILE_SITE_KEY`
+   - **Value:** Dein Turnstile Site Key (öffentlich)
+   - **Environment:** Production (und Preview, falls gewünscht)
+   - **Type:** Text
+   - **Variable name:** `TURNSTILE_SECRET_KEY`
+   - **Value:** Dein Turnstile Secret Key (geheim!)
+   - **Environment:** Production (und Preview, falls gewünscht)
+   - **Type:** Secret
+5. **Hinweis:** Der Site Key muss auch im Frontend verfügbar sein. 
+   Option A: Server-side Injection (empfohlen - Site Key in HTML einfügen)
+   Option B: Als Window-Variable setzen (z.B. via HTML head script tag)
 
 ### 4. Domain-Verifizierung (optional, aber empfohlen)
 Für bessere Zustellbarkeit solltest du deine Domain bei Resend verifizieren:
@@ -49,6 +70,17 @@ Nach dem Setup:
 - **"E-Mail konnte nicht gesendet werden"**: Prüfe Resend Dashboard → Logs für Details
 - **E-Mails kommen nicht an**: Prüfe Spam-Ordner, Domain-Verifizierung
 
+## Spam-Schutz Features
+
+Das Kontaktformular verfügt über mehrschichtigen Spam-Schutz:
+
+1. **Honeypot Field** - Verstecktes Feld, das Bots ausfüllen, Menschen aber nicht sehen
+2. **Rate Limiting** - Max. 3 Anfragen pro 15 Minuten pro IP-Adresse
+3. **Enhanced Validation** - Spam-Keyword-Erkennung, URL-Filter, Längenprüfung
+4. **Cloudflare Turnstile** (optional) - Moderne, privacy-freundliche CAPTCHA-Alternative
+
+**Turnstile ist kostenlos** und erfordert keine Cookies (DSGVO-freundlich).
+
 ## Kosten
 
 Resend Free Tier:
@@ -56,4 +88,8 @@ Resend Free Tier:
 - 100 E-Mails/Tag Limit
 
 Für höhere Limits: Upgrade auf Paid Plan.
+
+Cloudflare Turnstile:
+- Vollständig kostenlos
+- Unbegrenzte Verifizierungen
 
