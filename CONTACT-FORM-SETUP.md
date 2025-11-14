@@ -34,7 +34,7 @@ Das Kontaktformular verwendet Cloudflare Pages Functions und Resend API, um E-Ma
 4. Scrolle zu **"Environment variables"**
 5. Klicke **"Add variable"**:
    - **Variable name:** `TURNSTILE_SECRET_KEY`
-   - **Value:** `0x4AAAAAACA6u29B4YZsfcPe`
+   - **Value:** `0x4AAAAAACA6u-DUxcpSWGSv6Cf1Stuv7_Q`
    - **Environment:** Production (und Preview, falls gewünscht)
    - **Type:** Secret ⚠️ WICHTIG: Wähle "Secret" (nicht "Text")!
 6. Klicke **"Save"**

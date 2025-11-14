@@ -13,6 +13,8 @@ Das Turnstile Widget wird automatisch geladen und angezeigt.
 ## Secret Key
 **Status:** ⚠️ **Muss im Cloudflare Dashboard eingetragen werden**
 
+**Secret Key:** `0x4AAAAAACA6u-DUxcpSWGSv6Cf1Stuv7_Q`
+
 **Nächste Schritte:**
 
 1. Gehe zu **Cloudflare Dashboard**: https://dash.cloudflare.com
@@ -20,7 +22,7 @@ Das Turnstile Widget wird automatisch geladen und angezeigt.
 3. **Settings** Tab → **Environment variables**
 4. Klicke **"Add variable"**:
    - **Variable name:** `TURNSTILE_SECRET_KEY`
-   - **Value:** `0x4AAAAAACA6u29B4YZsfcPe`
+   - **Value:** `0x4AAAAAACA6u-DUxcpSWGSv6Cf1Stuv7_Q`
    - **Environment:** Production (und Preview)
    - **Type:** **Secret** ⚠️ Wichtig: Wähle "Secret"!
 5. Klicke **"Save"**
@@ -42,7 +44,8 @@ Nach dem Deployment:
 4. Fülle das Formular aus und sende es ab
 5. Es sollte erfolgreich funktionieren
 
-## Hinweis
+## Keys Übersicht
 
-**Beide Keys sind identisch** - das ist ungewöhnlich, aber wenn das von Cloudflare so vergeben wurde, ist es korrekt. Falls es Probleme gibt, prüfe nochmal im Cloudflare Turnstile Dashboard, ob die Keys wirklich identisch sind.
+- **Site Key:** `0x4AAAAAACA6u29B4YZsfcPe` ✅ Im HTML eingefügt
+- **Secret Key:** `0x4AAAAAACA6u-DUxcpSWGSv6Cf1Stuv7_Q` ⚠️ Muss im Dashboard eingetragen werden
 
