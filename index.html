@@ -1603,11 +1603,14 @@
                 const turnstileWidget = document.getElementById('turnstile-widget');
                 let turnstileWidgetId = null;
                 
+                // Set Turnstile Site Key
+                window.TURNSTILE_SITE_KEY = '0x4AAAAAACA6u29B4YZsfcPe';
+                
                 // Initialize Turnstile when script loads
                 // Check if Turnstile is available and site key exists
                 window.addEventListener('load', function() {
                     if (window.turnstile && turnstileWidget) {
-                        // Try to get site key from window (can be set via server-side injection)
+                        // Get site key from window variable
                         const siteKey = window.TURNSTILE_SITE_KEY || '';
                         if (siteKey) {
                             turnstileWidget.setAttribute('data-sitekey', siteKey);

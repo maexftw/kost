@@ -23,25 +23,24 @@ Das Kontaktformular verwendet Cloudflare Pages Functions und Resend API, um E-Ma
    - **Environment:** Production (und Preview, falls gewünscht)
    - **Type:** Secret
 
-### 3b. Cloudflare Turnstile Setup (Spam-Schutz)
-1. Gehe zu Cloudflare Dashboard → Turnstile
-2. Erstelle einen neuen Widget:
-   - **Widget name:** Kost Kontaktformular (oder wie gewünscht)
-   - **Domain:** kost-sicherheitstechnik.de
-   - **Mode:** Managed (empfohlen für beste UX)
-3. Kopiere **Site Key** und **Secret Key**
-4. In Cloudflare Pages → Settings → Environment variables:
-   - **Variable name:** `TURNSTILE_SITE_KEY`
-   - **Value:** Dein Turnstile Site Key (öffentlich)
-   - **Environment:** Production (und Preview, falls gewünscht)
-   - **Type:** Text
+### 3b. Cloudflare Turnstile Setup (Spam-Schutz) ✅ AKTIVIERT
+
+**Site Key:** Bereits im HTML eingefügt ✅
+
+**Secret Key Setup:**
+1. Gehe zu Cloudflare Dashboard → **Workers & Pages** → **Pages**
+2. Klicke auf dein Projekt (**"kost"** oder wie es heißt)
+3. Klicke auf **"Settings"** Tab
+4. Scrolle zu **"Environment variables"**
+5. Klicke **"Add variable"**:
    - **Variable name:** `TURNSTILE_SECRET_KEY`
-   - **Value:** Dein Turnstile Secret Key (geheim!)
+   - **Value:** `0x4AAAAAACA6u29B4YZsfcPe`
    - **Environment:** Production (und Preview, falls gewünscht)
-   - **Type:** Secret
-5. **Hinweis:** Der Site Key muss auch im Frontend verfügbar sein. 
-   Option A: Server-side Injection (empfohlen - Site Key in HTML einfügen)
-   Option B: Als Window-Variable setzen (z.B. via HTML head script tag)
+   - **Type:** Secret ⚠️ WICHTIG: Wähle "Secret" (nicht "Text")!
+6. Klicke **"Save"**
+7. Gehe zu **"Deployments"** Tab und klicke **"Retry deployment"** beim letzten Build
+
+**Fertig!** Nach dem Deployment ist Turnstile aktiv und schützt das Formular.
 
 ### 4. Domain-Verifizierung (optional, aber empfohlen)
 Für bessere Zustellbarkeit solltest du deine Domain bei Resend verifizieren:
