@@ -1,0 +1,4 @@
+# Force canonical HTTPS + www
+https://kost-sicherheitstechnik.de/* https://www.kost-sicherheitstechnik.de/:splat 301
+http://kost-sicherheitstechnik.de/* https://www.kost-sicherheitstechnik.de/:splat 301
+http://www.kost-sicherheitstechnik.de/* https://www.kost-sicherheitstechnik.de/:splat 301
