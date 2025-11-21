@@ -7,6 +7,7 @@ Erstellt eine permanente Konfigurationsdatei für die Cloudflare API
 
 import json
 import os
+import sys
 from pathlib import Path
 
 CONFIG_FILE = ".cloudflare-config.json"
