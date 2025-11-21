@@ -21,6 +21,8 @@ npm-debug.log*
 # Environment
 .env
 .env.local
+.cloudflare-config.json
+*cloudflare*config*.json
 
 # Development/Private Files
 CLAUDE.md
