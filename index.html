@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.kost-sicherheitstechnik.de/">
     <meta property="og:image" content="https://www.kost-sicherheitstechnik.de/images/Kost-Logo-seit-1995.png">
+    <meta property="og:locale" content="de_DE">
     <link rel="canonical" href="https://www.kost-sicherheitstechnik.de/">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#FA0016">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="KOST Sicherheitstechnik - Ihre Sicherheit. Neu gedacht.">
     <meta name="twitter:description" content="Professionelle Sicherheitssysteme für Privat und Gewerbe in Dortmund. Über 30 Jahre Erfahrung.">
@@ -62,9 +69,21 @@
         ]
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://www.kost-sicherheitstechnik.de/#website",
+        "name": "KOST Sicherheitstechnik",
+        "url": "https://www.kost-sicherheitstechnik.de/",
+        "publisher": {
+          "@id": "https://www.kost-sicherheitstechnik.de/#organization"
+        }
+      }
+    </script>
     <title>KOST Sicherheitstechnik - Ihre Sicherheit. Neu gedacht.</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <style>
         /* KOST APPLE STYLE THEME */
@@ -909,8 +928,8 @@
     <nav class="nav-apple" id="mainNav">
         <div class="container">
             <div class="flex justify-between items-center">
-                <a href="index.html" class="text-xl font-semibold" style="color: var(--foreground, #1d1d1f); text-decoration: none;" aria-label="KOST Sicherheitstechnik Homepage">
-                    <img src="https://github.com/maexftw/kost/blob/main/images/Kost-Logo-seit-1995.png?raw=true" alt="KOST Sicherheitstechnik Logo" style="height: 44px; width: auto; display: block;">
+                <a href="/" class="text-xl font-semibold" style="color: var(--foreground, #1d1d1f); text-decoration: none;" aria-label="KOST Sicherheitstechnik Homepage">
+                    <img src="images/Kost-Logo-seit-1995.png" alt="KOST Sicherheitstechnik Logo" class="no-lazy" style="height: 44px; width: auto; display: block;">
                 </a>
 
                 <div class="hidden md:flex items-center gap-8">
@@ -974,6 +993,7 @@
             <!-- KOST Logo -->
             <div class="hero-logo animate-fade-in-up">
                 <img src="images/Kost-Logo-seit-1995.png" alt="KOST Sicherheitstechnik Logo"
+                     width="220" height="52" fetchpriority="high" loading="eager"
                      onerror="this.style.display='none';">
             </div>
 
@@ -1026,7 +1046,7 @@
                     smarter Bewegungserkennung für Ihr Objekt.
                 </p>
                 <a href="pages/videoueberwachung.html" class="nav-link-apple" style="color: var(--kost-red, #FA0016); font-weight: 500;">
-                    Mehr erfahren →
+                    Mehr erfahren ?
                 </a>
             </div>
 
@@ -1041,7 +1061,7 @@
                     sofortiger Benachrichtigung bei Einbruchsversuchen.
                 </p>
                 <a href="pages/alarmanlagen.html" class="nav-link-apple" style="color: var(--kost-red, #FA0016); font-weight: 500;">
-                    Mehr erfahren →
+                    Mehr erfahren ?
                 </a>
             </div>
 
@@ -1056,7 +1076,7 @@
                     maximale Sicherheit in Ihrem Unternehmen.
                 </p>
                 <a href="pages/zutrittskontrolle.html" class="nav-link-apple" style="color: var(--kost-red, #FA0016); font-weight: 500;">
-                    Mehr erfahren →
+                    Mehr erfahren ?
                 </a>
             </div>
 
@@ -1071,7 +1091,7 @@
                     für physischen Einbruchschutz.
                 </p>
                 <a href="pages/mechanische-sicherung.html" class="nav-link-apple" style="color: var(--kost-red, #FA0016); font-weight: 500;">
-                    Mehr erfahren →
+                    Mehr erfahren ?
                 </a>
             </div>
 
@@ -1086,7 +1106,7 @@
                     elektronischer Zustellung für Mehrfamilienhäuser.
                 </p>
                 <a href="pages/briefkasten.html" class="nav-link-apple" style="color: var(--kost-red, #FA0016); font-weight: 500;">
-                    Mehr erfahren →
+                    Mehr erfahren ?
                 </a>
             </div>
 
@@ -1101,7 +1121,7 @@
                     Handlungsempfehlungen vom Experten.
                 </p>
                 <a href="#contact" class="nav-link-apple" style="color: var(--kost-red); font-weight: 500;">
-                    Termin vereinbaren →
+                    Termin vereinbaren ?
                 </a>
             </div>
         </div>
@@ -1141,9 +1161,9 @@
         </style>
         <div class="split-content scroll-reveal" style="transition-delay: 0.2s;">
             <div class="hero-eyebrow mb-md">Referenzprojekt</div>
-            <h2 class="display-md mb-lg">Maximale Sicherheit – ohne Barrieren</h2>
+            <h2 class="display-md mb-lg">Maximale Sicherheit ??" ohne Barrieren</h2>
             <p class="body-md mb-lg">
-                Hochwertige Exponate, internationale Besucherströme und höchste Sicherheitsanforderungen – das Deutsche Fußballmuseum benötigte ein Sicherheitssystem, das unsichtbar schützt und dennoch maximale Flexibilität bietet.
+                Hochwertige Exponate, internationale Besucherströme und höchste Sicherheitsanforderungen ??" das Deutsche Fußballmuseum benötigte ein Sicherheitssystem, das unsichtbar schützt und dennoch maximale Flexibilität bietet.
             </p>
 
             <!-- Feature Box -->
@@ -1212,7 +1232,7 @@
             <div class="hero-eyebrow mb-md">Unser Ablauf</div>
             <h2 class="display-lg mb-lg">So einfach zu mehr Sicherheit</h2>
             <p class="body-lg">
-                Von der ersten Beratung bis zur finalen Installation –
+                Von der ersten Beratung bis zur finalen Installation ??"
                 professionell und transparent in drei Schritten.
             </p>
         </div>
@@ -1377,7 +1397,7 @@
                 </div>
                 <div class="featured-text">
                     <p>"Die Zusammenarbeit mit Kost Sicherheitstechnik verläuft stets professionell und absolut diskret. Die Kommunikation erfolgt auf Augenhöhe, und auftretende Probleme werden zuverlässig innerhalb von 20 Stunden gelöst. Besonders hervorzuheben ist der direkte Ansprechpartner, der für alle Eventualitäten eine passende Lösung findet."</p>
-                    <div class="featured-author">— Thomas Ziegler, Geschäftsführer Paratos GmbH</div>
+                    <div class="featured-author">??" Thomas Ziegler, Geschäftsführer Paratos GmbH</div>
                 </div>
             </div>
         </div>
@@ -1386,12 +1406,15 @@
         <div class="featured-testimonial scroll-reveal" style="margin-top: 2rem;">
             <div class="featured-testimonial-content">
                 <div class="featured-logo">
-                    <img src="images/logos/wdi-schwerte.png" alt="WDI Schwerte Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <picture class="logo-picture">
+                        <source srcset="images/logos/wdi-schwerte.webp" type="image/webp">
+                        <img src="images/logos/wdi-schwerte.png" alt="WDI Schwerte Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    </picture>
                     <span class="logo-fallback">WDI Schwerte</span>
                 </div>
                 <div class="featured-text">
                     <p>"Wir sind äußerst zufrieden mit der Zusammenarbeit mit Kost Sicherheitstechnik. Von der ersten Kontaktaufnahme bis zur Umsetzung unserer Sicherheitslösung war der gesamte Prozess geprägt von Professionalität, hoher Flexibilität und einer sehr guten Kommunikation."</p>
-                    <div class="featured-author">— Ralf Rauch, WDI Schwerte</div>
+                    <div class="featured-author">??" Ralf Rauch, WDI Schwerte</div>
                 </div>
             </div>
         </div>
@@ -1400,12 +1423,15 @@
         <div class="featured-testimonial scroll-reveal" style="margin-top: 2rem;">
             <div class="featured-testimonial-content">
                 <div class="featured-logo">
-                    <img src="images/logos/saz-logo.jpg" alt="SAZ Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <picture class="logo-picture">
+                        <source srcset="images/logos/saz-logo.webp" type="image/webp">
+                        <img src="images/logos/saz-logo.jpg" alt="SAZ Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    </picture>
                     <span class="logo-fallback">SAZ</span>
                 </div>
                 <div class="featured-text">
                     <p>"Wir waren mit der Montage und Betreuung sehr zufrieden. Auch Anpassungen die erst nach der Montage aufgefallen sind wurden sofort erledigt, sodass das System einwandfrei funktioniert. Wir werden auch in Zukunft weitere Projekte mit KOST umsetzen und bedanken uns für die gute Zusammenarbeit."</p>
-                    <div class="featured-author">— SAZ</div>
+                    <div class="featured-author">??" SAZ</div>
                 </div>
             </div>
         </div>
@@ -1414,12 +1440,15 @@
         <div class="featured-testimonial scroll-reveal" style="margin-top: 2rem;">
             <div class="featured-testimonial-content">
                 <div class="featured-logo">
-                    <img src="images/logos/pietsch-gruppe.png" alt="Pietsch Gruppe Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <picture class="logo-picture">
+                        <source srcset="images/logos/pietsch-gruppe.webp" type="image/webp">
+                        <img src="images/logos/pietsch-gruppe.png" alt="Pietsch Gruppe Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    </picture>
                     <span class="logo-fallback">Pietsch Gruppe</span>
                 </div>
                 <div class="featured-text">
                     <p>"Mit der Firma Kost Sicherheitstechnik verbindet uns eine vertrauensvolle und partnerschaftliche Zusammenarbeit. Das Team überzeugt durch Fachkompetenz, Zuverlässigkeit und Engagement. Wir schätzen den professionellen Austausch und die stets reibungslose Abwicklung unserer Projekte."</p>
-                    <div class="featured-author">— Pietsch Gruppe</div>
+                    <div class="featured-author">??" Pietsch Gruppe</div>
                 </div>
             </div>
         </div>
@@ -1432,8 +1461,8 @@
                     <span class="logo-fallback">Deutsches Fußballmuseum</span>
                 </div>
                 <div class="featured-text">
-                    <p>"Hochwertige Exponate, internationale Besucherströme und höchste Sicherheitsanforderungen – Kost Sicherheitstechnik hat mit modernster Sicherheitstechnik dafür gesorgt, dass Besucher historische Exponate aus nächster Nähe erleben können, ohne die Sicherheit zu gefährden."</p>
-                    <div class="featured-author">— Deutsches Fußballmuseum</div>
+                    <p>"Hochwertige Exponate, internationale Besucherströme und höchste Sicherheitsanforderungen ??" Kost Sicherheitstechnik hat mit modernster Sicherheitstechnik dafür gesorgt, dass Besucher historische Exponate aus nächster Nähe erleben können, ohne die Sicherheit zu gefährden."</p>
+                    <div class="featured-author">??" Deutsches Fußballmuseum</div>
                 </div>
             </div>
         </div>
@@ -1442,12 +1471,15 @@
         <div class="featured-testimonial scroll-reveal" style="margin-top: 2rem;">
             <div class="featured-testimonial-content">
                 <div class="featured-logo">
-                    <img src="images/logos/hse-logo.jpg" alt="HSE Getränkewelt Essen Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <picture class="logo-picture">
+                        <source srcset="images/logos/hse-logo.webp" type="image/webp">
+                        <img src="images/logos/hse-logo.jpg" alt="HSE Getr?nkewelt Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    </picture>
                     <span class="logo-fallback">HSE Getränkewelt Essen</span>
                 </div>
                 <div class="featured-text">
                     <p>"Die Zusammenarbeit mit Kost Sicherheitstechnik verlief sehr professionell und termingerecht. Das Team war jederzeit ansprechbar und hat unsere Sicherheitsanforderungen perfekt umgesetzt."</p>
-                    <div class="featured-author">— HSE Getränkewelt Essen</div>
+                    <div class="featured-author">??" HSE Getränkewelt Essen</div>
                 </div>
             </div>
         </div>
@@ -1470,7 +1502,10 @@
 
             <div class="reference-card">
                 <div class="reference-logo">
-                    <img src="images/logos/wdi-schwerte.png" alt="WDI Schwerte Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <picture class="logo-picture">
+                        <source srcset="images/logos/wdi-schwerte.webp" type="image/webp">
+                        <img src="images/logos/wdi-schwerte.png" alt="WDI Schwerte Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    </picture>
                     <span class="logo-fallback">WDI Schwerte</span>
                 </div>
             </div>
@@ -1484,7 +1519,10 @@
 
             <div class="reference-card">
                 <div class="reference-logo">
-                    <img src="images/logos/hse-logo.jpg" alt="HSE Getränkewelt Essen Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <picture class="logo-picture">
+                        <source srcset="images/logos/hse-logo.webp" type="image/webp">
+                        <img src="images/logos/hse-logo.jpg" alt="HSE Getr?nkewelt Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    </picture>
                     <span class="logo-fallback">HSE Getränkewelt Essen</span>
                 </div>
             </div>
@@ -1519,7 +1557,10 @@
 
             <div class="reference-card">
                 <div class="reference-logo">
-                    <img src="images/logos/versatel.png" alt="versatel Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    <picture class="logo-picture">
+                        <source srcset="images/logos/versatel.webp" type="image/webp">
+                        <img src="images/logos/versatel.png" alt="versatel Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.nextElementSibling.style.display='none';">
+                    </picture>
                     <span class="logo-fallback">versatel</span>
                 </div>
             </div>
@@ -1568,7 +1609,7 @@
                             <input type="tel" name="phone" required aria-required="true" placeholder="z. B. +49 231 ..." style="padding:.8rem 1rem;border:1px solid var(--border);border-radius:12px;background:#fff;">
                         </label>
                         <label style="display:grid;gap:6px;">
-                            <span class="caption">E‑Mail*</span>
+                            <span class="caption">E??'Mail*</span>
                             <input type="email" name="email" required aria-required="true" placeholder="ihre@mail.de" style="padding:.8rem 1rem;border:1px solid var(--border);border-radius:12px;background:#fff;">
                         </label>
                         <label style="display:grid;gap:6px;">
@@ -1664,7 +1705,7 @@
                     const submitButton = form.querySelector('button[type="submit"]');
                     const originalButtonText = submitButton.textContent;
                     submitButton.disabled = true;
-                    submitButton.textContent = 'Sende…';
+                    submitButton.textContent = 'Sende???';
                     state.textContent = '';
                     state.style.color = 'var(--muted-foreground)';
                     
@@ -1759,8 +1800,12 @@
 
     <!-- SCRIPTS -->
     <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+        // Initialize Lucide Icons once DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide && typeof lucide.createIcons === 'function') {
+                lucide.createIcons();
+            }
+        });
 
         // Navigation scroll effect
         const nav = document.getElementById('mainNav');
@@ -1864,5 +1909,19 @@
             });
         });
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('img:not(.no-lazy)').forEach((img) => {
+          if (!img.hasAttribute('loading')) {
+            img.setAttribute('loading', 'lazy');
+          }
+        });
+      });
+    </script>
 </body>
 </html>
+
+
+
+
+
