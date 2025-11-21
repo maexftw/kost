@@ -9,14 +9,43 @@ import requests
 import json
 import sys
 import os
+from pathlib import Path
 
-# Konfiguration - aus Umgebungsvariablen oder direkt hier
-CLOUDFLARE_API_TOKEN = os.getenv("CLOUDFLARE_API_TOKEN", "")
-CLOUDFLARE_ZONE_ID = os.getenv("CLOUDFLARE_ZONE_ID", "")
-CLOUDFLARE_ACCOUNT_ID = os.getenv("CLOUDFLARE_ACCOUNT_ID", "")
+# Lade Konfiguration
+def load_config():
+    """Lädt Cloudflare API Konfiguration"""
+    config = {}
+    
+    # 1. Versuche Config-Datei zu laden
+    config_file = Path(".cloudflare-config.json")
+    if not config_file.exists():
+        config_file = Path("cloudflare-config.json")
+    
+    if config_file.exists():
+        try:
+            with open(config_file, 'r', encoding='utf-8') as f:
+                file_config = json.load(f)
+                config.update(file_config)
+        except Exception as e:
+            print(f"⚠️ Fehler beim Laden der Config-Datei: {e}")
+    
+    # 2. Überschreibe mit Umgebungsvariablen (haben Priorität)
+    if os.getenv("CLOUDFLARE_API_TOKEN"):
+        config["api_token"] = os.getenv("CLOUDFLARE_API_TOKEN")
+    if os.getenv("CLOUDFLARE_ZONE_ID"):
+        config["zone_id"] = os.getenv("CLOUDFLARE_ZONE_ID")
+    if os.getenv("CLOUDFLARE_ACCOUNT_ID"):
+        config["account_id"] = os.getenv("CLOUDFLARE_ACCOUNT_ID")
+    if os.getenv("CLOUDFLARE_DOMAIN"):
+        config["domain"] = os.getenv("CLOUDFLARE_DOMAIN")
+    
+    return config
 
-# Domain
-DOMAIN = "kost-sicherheitstechnik.de"
+config = load_config()
+CLOUDFLARE_API_TOKEN = config.get("api_token", "")
+CLOUDFLARE_ZONE_ID = config.get("zone_id", "")
+CLOUDFLARE_ACCOUNT_ID = config.get("account_id", "")
+DOMAIN = config.get("domain", "kost-sicherheitstechnik.de")
 
 def get_headers():
     """Erstellt API Headers"""
@@ -201,11 +230,10 @@ def main():
     
     # API Token prüfen
     if not CLOUDFLARE_API_TOKEN:
-        print("❌ FEHLER: CLOUDFLARE_API_TOKEN ist nicht gesetzt!")
+        print("❌ FEHLER: CLOUDFLARE_API_TOKEN ist nicht konfiguriert!")
         print()
-        print("Setze die Umgebungsvariable:")
-        print("  Windows PowerShell: $env:CLOUDFLARE_API_TOKEN = \"dein-token\"")
-        print("  Linux/Mac: export CLOUDFLARE_API_TOKEN=\"dein-token\"")
+        print("Führe zuerst das Setup-Script aus:")
+        print("  python setup-cloudflare-api.py")
         print()
         print("Oder siehe CLOUDFLARE-API-FULL-SETUP.md für Details")
         return

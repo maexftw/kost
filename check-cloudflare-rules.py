@@ -8,10 +8,44 @@ Prüft alle WAF Rules auf mögliche Googlebot-Blockierungen
 import requests
 import json
 import sys
+import os
+from pathlib import Path
+
+# Lade Konfiguration aus Datei oder Umgebungsvariablen
+def load_config():
+    """Lädt Cloudflare API Konfiguration"""
+    config = {}
+    
+    # 1. Versuche Config-Datei zu laden
+    config_file = Path(".cloudflare-config.json")
+    if not config_file.exists():
+        config_file = Path("cloudflare-config.json")
+    
+    if config_file.exists():
+        try:
+            with open(config_file, 'r', encoding='utf-8') as f:
+                file_config = json.load(f)
+                config.update(file_config)
+        except Exception as e:
+            print(f"⚠️ Fehler beim Laden der Config-Datei: {e}")
+    
+    # 2. Überschreibe mit Umgebungsvariablen (haben Priorität)
+    if os.getenv("CLOUDFLARE_API_TOKEN"):
+        config["api_token"] = os.getenv("CLOUDFLARE_API_TOKEN")
+    if os.getenv("CLOUDFLARE_ZONE_ID"):
+        config["zone_id"] = os.getenv("CLOUDFLARE_ZONE_ID")
+    if os.getenv("CLOUDFLARE_ACCOUNT_ID"):
+        config["account_id"] = os.getenv("CLOUDFLARE_ACCOUNT_ID")
+    if os.getenv("CLOUDFLARE_DOMAIN"):
+        config["domain"] = os.getenv("CLOUDFLARE_DOMAIN")
+    
+    return config
 
 # Cloudflare API Konfiguration
-CLOUDFLARE_API_TOKEN = ""  # Hier deinen API Token eintragen
-ZONE_ID = ""  # Deine Zone ID (findest du in Cloudflare Dashboard → Overview → Zone ID)
+config = load_config()
+CLOUDFLARE_API_TOKEN = config.get("api_token", "")
+ZONE_ID = config.get("zone_id", "")
+DOMAIN = config.get("domain", "kost-sicherheitstechnik.de")
 
 def get_zone_id(api_token, domain):
     """Holt die Zone ID für eine Domain"""
@@ -28,7 +62,20 @@ def get_zone_id(api_token, domain):
     if response.status_code == 200:
         data = response.json()
         if data.get("result") and len(data["result"]) > 0:
-            return data["result"][0]["id"]
+            zone_id = data["result"][0]["id"]
+            # Speichere Zone ID in Config falls nicht vorhanden
+            if not ZONE_ID:
+                try:
+                    config_file = Path(".cloudflare-config.json")
+                    if config_file.exists():
+                        with open(config_file, 'r', encoding='utf-8') as f:
+                            config = json.load(f)
+                        config["zone_id"] = zone_id
+                        with open(config_file, 'w', encoding='utf-8') as f:
+                            json.dump(config, f, indent=2, ensure_ascii=False)
+                except:
+                    pass
+            return zone_id
     
     return None
 
@@ -120,26 +167,28 @@ def main():
     
     # API Token prüfen
     if not CLOUDFLARE_API_TOKEN:
-        print("❌ FEHLER: CLOUDFLARE_API_TOKEN ist leer!")
+        print("❌ FEHLER: CLOUDFLARE_API_TOKEN ist nicht konfiguriert!")
         print()
-        print("So erstellst du einen API Token:")
-        print("1. Gehe zu: https://dash.cloudflare.com/profile/api-tokens")
-        print("2. Klicke auf 'Create Token'")
-        print("3. Wähle 'Edit zone DNS' Template oder erstelle Custom Token mit:")
-        print("   - Zone: Zone:Read, Zone Settings:Read, Zone WAF:Read")
-        print("   - Account: Account WAF:Read")
-        print("4. Kopiere den Token und füge ihn oben in CLOUDFLARE_API_TOKEN ein")
+        print("Zwei Möglichkeiten:")
+        print()
+        print("1. Setup-Script ausführen (empfohlen):")
+        print("   python setup-cloudflare-api.py")
+        print()
+        print("2. Oder manuell:")
+        print("   - Erstelle .cloudflare-config.json mit deinem API Token")
+        print("   - Oder setze Umgebungsvariable: CLOUDFLARE_API_TOKEN")
+        print()
+        print("Siehe auch: CLOUDFLARE-API-FULL-SETUP.md")
         print()
         return
     
     # Zone ID holen falls nicht gesetzt
     if not ZONE_ID:
-        domain = "kost-sicherheitstechnik.de"
-        print(f"🔍 Suche Zone ID für {domain}...")
-        zone_id = get_zone_id(CLOUDFLARE_API_TOKEN, domain)
+        print(f"🔍 Suche Zone ID für {DOMAIN}...")
+        zone_id = get_zone_id(CLOUDFLARE_API_TOKEN, DOMAIN)
         if zone_id:
             print(f"✅ Zone ID gefunden: {zone_id}")
-            print(f"   (Füge diese oben in ZONE_ID ein für zukünftige Läufe)")
+            print(f"   (Wird automatisch in Config gespeichert)")
         else:
             print("❌ Zone ID nicht gefunden!")
             return
