@@ -88,7 +88,12 @@
       function handleLogoError(img) {
         img.style.display = 'none';
         const parent = img.parentElement;
-        const fallback = parent.querySelector('.logo-fallback');
+        // First try to find .logo-fallback class
+        let fallback = parent.querySelector('.logo-fallback');
+        // Fallback: if no class found, try nextElementSibling (for edge cases)
+        if (!fallback && img.nextElementSibling) {
+          fallback = img.nextElementSibling;
+        }
         if (fallback) {
           fallback.style.display = 'block';
         }
@@ -96,7 +101,12 @@
       
       function handleLogoLoad(img) {
         const parent = img.parentElement;
-        const fallback = parent.querySelector('.logo-fallback');
+        // First try to find .logo-fallback class
+        let fallback = parent.querySelector('.logo-fallback');
+        // Fallback: if no class found, try nextElementSibling (for edge cases)
+        if (!fallback && img.nextElementSibling) {
+          fallback = img.nextElementSibling;
+        }
         if (fallback) {
           fallback.style.display = 'none';
         }
@@ -1154,7 +1164,7 @@
                 <img src="images/logos/67b5989e98af53668eeae5dc_Logo_DFM.svg" alt="Deutsches Fußballmuseum Logo" 
                      style="max-width: 100%; height: auto; margin: 0 auto 2.5rem; display: block;"
                      onerror="handleLogoError(this)">
-                <div style="display: none; font-size: 1.5rem; font-weight: 700; color: #1d1d1f; padding: 2rem; line-height: 1.4;">Deutsches Fußballmuseum</div>
+                <span class="logo-fallback" style="display: none; font-size: 1.5rem; font-weight: 700; color: #1d1d1f; padding: 2rem; line-height: 1.4;">Deutsches Fußballmuseum</span>
                 <h3 class="headline" style="font-size: 1.5rem; margin: 0; line-height: 1.3; color: #1d1d1f;">
                     setzt auf<br>
                     <span style="color: var(--kost-red);">Kost Sicherheitstechnik</span>
