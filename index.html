@@ -88,12 +88,26 @@
       function handleLogoError(img) {
         img.style.display = 'none';
         const parent = img.parentElement;
-        // First try to find .logo-fallback class
-        let fallback = parent.querySelector('.logo-fallback');
-        // Fallback: if no class found, try nextElementSibling (for edge cases)
-        if (!fallback && img.nextElementSibling) {
-          fallback = img.nextElementSibling;
+        let fallback = null;
+        
+        // If parent is a <picture> element, the fallback is a sibling of the picture, not inside it
+        if (parent.tagName === 'PICTURE') {
+          // Look in the parent of the picture (the container div)
+          const container = parent.parentElement;
+          fallback = container ? container.querySelector('.logo-fallback') : null;
+          // Also check if picture's next sibling is the fallback
+          if (!fallback && parent.nextElementSibling && parent.nextElementSibling.classList.contains('logo-fallback')) {
+            fallback = parent.nextElementSibling;
+          }
+        } else {
+          // Normal case: fallback is within the parent or next sibling
+          fallback = parent.querySelector('.logo-fallback');
+          // Fallback: if no class found, try nextElementSibling (for edge cases)
+          if (!fallback && img.nextElementSibling) {
+            fallback = img.nextElementSibling;
+          }
         }
+        
         if (fallback) {
           fallback.style.display = 'block';
         }
@@ -101,12 +115,26 @@
       
       function handleLogoLoad(img) {
         const parent = img.parentElement;
-        // First try to find .logo-fallback class
-        let fallback = parent.querySelector('.logo-fallback');
-        // Fallback: if no class found, try nextElementSibling (for edge cases)
-        if (!fallback && img.nextElementSibling) {
-          fallback = img.nextElementSibling;
+        let fallback = null;
+        
+        // If parent is a <picture> element, the fallback is a sibling of the picture, not inside it
+        if (parent.tagName === 'PICTURE') {
+          // Look in the parent of the picture (the container div)
+          const container = parent.parentElement;
+          fallback = container ? container.querySelector('.logo-fallback') : null;
+          // Also check if picture's next sibling is the fallback
+          if (!fallback && parent.nextElementSibling && parent.nextElementSibling.classList.contains('logo-fallback')) {
+            fallback = parent.nextElementSibling;
+          }
+        } else {
+          // Normal case: fallback is within the parent or next sibling
+          fallback = parent.querySelector('.logo-fallback');
+          // Fallback: if no class found, try nextElementSibling (for edge cases)
+          if (!fallback && img.nextElementSibling) {
+            fallback = img.nextElementSibling;
+          }
         }
+        
         if (fallback) {
           fallback.style.display = 'none';
         }
