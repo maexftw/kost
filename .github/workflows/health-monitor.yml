@@ -1,0 +1,93 @@
+name: Website Health Monitor
+
+on:
+  schedule:
+    # Läuft täglich um 8:00 und 18:00 Uhr (UTC)
+    - cron: '0 8,18 * * *'
+  workflow_dispatch: # Manuell ausführbar
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Website Health
+        id: health
+        run: |
+          echo "Checking website health..."
+
+          # Health Check
+          HEALTH_RESPONSE=$(curl -s -w "\n%{http_code}" "https://www.kost-sicherheitstechnik.de/api/health")
+          HEALTH_STATUS=$(echo "$HEALTH_RESPONSE" | tail -n1)
+          HEALTH_BODY=$(echo "$HEALTH_RESPONSE" | head -n -1)
+
+          echo "Health Status Code: $HEALTH_STATUS"
+          echo "Health Response: $HEALTH_BODY"
+
+          if [ "$HEALTH_STATUS" != "200" ]; then
+            echo "health_ok=false" >> $GITHUB_OUTPUT
+            echo "::error::Health check failed with status $HEALTH_STATUS"
+          else
+            echo "health_ok=true" >> $GITHUB_OUTPUT
+          fi
+
+          # Homepage Check
+          HOMEPAGE_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://www.kost-sicherheitstechnik.de/")
+          echo "Homepage Status: $HOMEPAGE_STATUS"
+
+          if [ "$HOMEPAGE_STATUS" != "200" ]; then
+            echo "homepage_ok=false" >> $GITHUB_OUTPUT
+            echo "::error::Homepage returned status $HOMEPAGE_STATUS"
+          else
+            echo "homepage_ok=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Issue on Failure
+        if: steps.health.outputs.health_ok == 'false' || steps.health.outputs.homepage_ok == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `⚠️ Website Health Check Failed - ${new Date().toISOString().slice(0,10)}`;
+            const body = `
+            ## Automatischer Health Check fehlgeschlagen
+
+            **Zeitpunkt:** ${new Date().toISOString()}
+
+            ### Status:
+            - Health API: ${{ steps.health.outputs.health_ok == 'true' && '✅ OK' || '❌ Fehler' }}
+            - Homepage: ${{ steps.health.outputs.homepage_ok == 'true' && '✅ OK' || '❌ Fehler' }}
+
+            ### Nächste Schritte:
+            1. Prüfe https://www.kost-sicherheitstechnik.de/api/health
+            2. Prüfe Cloudflare Dashboard auf Fehler
+            3. Prüfe Environment Variables (RESEND_API_KEY, etc.)
+
+            ---
+            *Automatisch erstellt von GitHub Actions*
+            `;
+
+            // Check if similar issue already exists
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'health-check-failed'
+            });
+
+            if (issues.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                body: body,
+                labels: ['health-check-failed', 'automated']
+              });
+            }
+
+      - name: Summary
+        run: |
+          echo "## Health Check Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Check | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Health API | ${{ steps.health.outputs.health_ok == 'true' && '✅ OK' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Homepage | ${{ steps.health.outputs.homepage_ok == 'true' && '✅ OK' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
