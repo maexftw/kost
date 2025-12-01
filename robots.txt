@@ -1,5 +1,6 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /api/
 
 Sitemap: https://www.kost-sicherheitstechnik.de/sitemap.xml
 
