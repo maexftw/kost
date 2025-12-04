@@ -6,7 +6,7 @@
 
 ---
 
-Hallo Thorsten,
+Hallo Torsten,
 
 hier findest du eine komplette Übersicht über deine neue Website. Ich habe alles so aufgebaut, dass die Seite schnell, sicher und wartungsarm ist – und dass Moritz sie in Zukunft problemlos pflegen kann.
 
@@ -125,23 +125,6 @@ Deine Website ist perfekt für Google optimiert:
 
 ---
 
-## Performance-Übersicht (Lighthouse)
-
-| Kategorie | Score | Bewertung |
-|-----------|-------|-----------|
-| **SEO** | 100/100 | Perfekt |
-| **Accessibility** | 92/100 | Sehr gut |
-| **Best Practices** | 79/100 | Gut |
-| **Performance** | ~60/100 | Solide |
-
-### Warum ist Performance "nur" 60?
-
-Die Performance-Wertung wird durch externe Ressourcen beeinflusst (Tailwind CSS, Icons). Das sind Entwickler-Metriken – für echte Besucher lädt die Seite schnell genug.
-
-**Wichtig:** Die Seite ist für Besucher schnell und funktioniert einwandfrei.
-
----
-
 ## Die Seiten deiner Website
 
 | Seite | URL |
@@ -171,15 +154,18 @@ Die Performance-Wertung wird durch externe Ressourcen beeinflusst (Tailwind CSS,
 
 ### Übergabe an Moritz
 
-Moritz bekommt Zugang zum GitHub-Repository und kann die Website selbstständig pflegen. Er hat ein ausführliches Handover-Dokument bekommen mit:
+Im Anhang findest du das **Handover-Dokument für Moritz** (`HANDOVER-MORITZ.md`). Darin ist alles erklärt, was er für die Pflege der Website braucht:
 
-- Anleitung für Änderungen
+- Wie er Änderungen machen kann (verschiedene Optionen)
+- Wie das automatische Deployment funktioniert
 - Backup-Strategien
-- Troubleshooting-Guide
+- Was zu tun ist, wenn etwas nicht funktioniert
+
+Sobald ich seinen GitHub-Benutzernamen habe, lade ich ihn zum Repository ein. Falls er noch keinen GitHub-Account hat oder Fragen dazu hat, kann er sich gerne bei mir melden – ich helfe ihm beim Einrichten.
 
 ### Falls ihr Hilfe braucht
 
-Ich stehe euch gerne zur Verfügung, wenn Fragen auftauchen. Für die laufende Pflege ist Moritz aber der richtige Ansprechpartner.
+Bei Fragen kann Moritz sich jederzeit bei mir melden. Für die laufende Pflege ist er dann aber der Ansprechpartner.
 
 ---
 
